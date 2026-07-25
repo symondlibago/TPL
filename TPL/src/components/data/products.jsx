@@ -2287,10 +2287,10 @@ export const categoryContent = {
     desc: "True wellness isn't just the absence of illness; it's the presence of vitality. We've redesigned premium care to be as seamless as it is effective.",
     conclusion: "Experience health that is curated, personalized, and delivered effortlessly.",
     features: [
-      { icon: Dna, text: "Personalized Vitality", color: "text-[#D4AF37]" },
-      { icon: Infinity, text: "Seamless Integration", color: "text-[#D4AF37]" },
-      { icon: Clock, text: "Proactive Longevity", color: "text-[#D4AF37]" },
-      { icon: Lightbulb, text: "Unrivaled Expertise", color: "text-[#D4AF37]" }
+      { icon: Dna, text: "Personalized Vitality", color: "text-accent" },
+      { icon: Infinity, text: "Seamless Integration", color: "text-accent" },
+      { icon: Clock, text: "Proactive Longevity", color: "text-accent" },
+      { icon: Lightbulb, text: "Unrivaled Expertise", color: "text-accent" }
     ]
   },
   "Weight Loss": {
@@ -2311,10 +2311,10 @@ export const categoryContent = {
     desc: "Accelerate recovery, manage metabolic efficiency, and heal faster with advanced peptides and clinical weight management protocols.",
     conclusion: "Reclaim your prime physical condition.",
     features: [
-      { icon: Activity, text: "Metabolic Reset", color: "text-[#D4AF37]" },
-      { icon: Shield, text: "Tissue Repair", color: "text-[#D4AF37]" },
-      { icon: Zap, text: "Faster Recovery", color: "text-[#D4AF37]" },
-      { icon: ShieldCheck, text: "Clinically Proven", color: "text-[#D4AF37]" }
+      { icon: Activity, text: "Metabolic Reset", color: "text-accent" },
+      { icon: Shield, text: "Tissue Repair", color: "text-accent" },
+      { icon: Zap, text: "Faster Recovery", color: "text-accent" },
+      { icon: ShieldCheck, text: "Clinically Proven", color: "text-accent" }
     ]
   },
   "Unisex Anti-Aging Rx": {
@@ -2335,10 +2335,10 @@ export const categoryContent = {
     desc: "From targeted hair regrowth formulas to fast-acting performance enhancements, our discreet clinical solutions put you back in control.",
     conclusion: "Experience optimized male vitality.",
     features: [
-      { icon: Flame, text: "Enhanced Performance", color: "text-[#9C4A30]" },
-      { icon: Shield, text: "Follicle Defense", color: "text-[#9C4A30]" },
-      { icon: Zap, text: "Fast-Acting", color: "text-[#9C4A30]" },
-      { icon: ShieldCheck, text: "Discreet Delivery", color: "text-[#9C4A30]" }
+      { icon: Flame, text: "Enhanced Performance", color: "text-accent" },
+      { icon: Shield, text: "Follicle Defense", color: "text-accent" },
+      { icon: Zap, text: "Fast-Acting", color: "text-accent" },
+      { icon: ShieldCheck, text: "Discreet Delivery", color: "text-accent" }
     ]
   },
   "Unisex Skin Health": {

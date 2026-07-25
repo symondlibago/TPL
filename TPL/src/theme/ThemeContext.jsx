@@ -5,17 +5,20 @@ import { decodeTheme } from "./share";
 const ThemeContext = createContext(null);
 export const useTheme = () => useContext(ThemeContext);
 
+// Storage keys are prefixed `tpl_` (was `nv_`). Bumping the prefix at the rebrand
+// deliberately retires every visitor's saved look, so the new house palette is what
+// actually renders instead of a stale `nv_palette: "slate"` winning over DEFAULTS.
 const LS = {
-  palette: "nv_palette",
-  typography: "nv_type",
-  weight: "nv_weight",
-  italic: "nv_italic",
-  letterSpacing: "nv_letter",
-  lineHeight: "nv_line",
-  radius: "nv_radius",
-  paletteOverrides: "nv_palette_overrides",
-  kioskLayout: "nv_kiosk_layout",
-  studio: "nv_studio_unlocked",
+  palette: "tpl_palette",
+  typography: "tpl_type",
+  weight: "tpl_weight",
+  italic: "tpl_italic",
+  letterSpacing: "tpl_letter",
+  lineHeight: "tpl_line",
+  radius: "tpl_radius",
+  paletteOverrides: "tpl_palette_overrides",
+  kioskLayout: "tpl_kiosk_layout",
+  studio: "tpl_studio_unlocked",
 };
 
 const read = (k, fallback) => {

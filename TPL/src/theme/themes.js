@@ -1,4 +1,29 @@
 export const PALETTES = [
+  // The house palette. Colours sampled from the brand signage (public/TPL LOGO.jpeg):
+  // wall #E0C9B0–#FBEDD9, brass #926417–#C49239, sign letters #191006–#1D140B.
+  // bg/surface are lifted and desaturated off the wall tone — the wall at full
+  // strength reads muddy over large areas and drops text contrast below AA.
+  {
+    id: "peptide-lounge",
+    name: "The Peptide Lounge",
+    tagline: "Warm ivory + brass + near-black · the house palette",
+    swatch: ["#1B1712", "#A97D24", "#C49239", "#E6D9C4", "#F5EDE1"],
+    vars: {
+      "--nv-bg": "#F5EDE1",
+      "--nv-surface": "#FDFAF5",
+      "--nv-surface-2": "#EFE2CE",
+      "--nv-ink": "#1B1712",
+      "--nv-ink-panel": "#17130D",
+      "--nv-primary": "#211C15",
+      "--nv-primary-deep": "#100D08",
+      "--nv-accent": "#A97D24",
+      "--nv-line": "#E6D9C4",
+      "--nv-line-strong": "#D6C3A6",
+      "--nv-muted": "#6B5E4B",
+      "--nv-on-primary": "#F9F3E7",
+      "--nv-on-panel": "#ECE0CA",
+    },
+  },
   {
     id: "slate",
     name: "Health & Luxury",
@@ -698,7 +723,7 @@ export const KIOSK_LAYOUTS = [
 ];
 
 export const DEFAULTS = {
-  palette: "slate",
+  palette: "peptide-lounge",
   typography: "grotesk",
   weight: "medium",
   italic: false,

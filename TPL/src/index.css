@@ -34,21 +34,24 @@
   --font-brand: var(--nv-font-display);
 }
 
-/* ---- Runtime defaults (Slate & Stone · Grotesk · Medium). JS overrides these. ---- */
+/* ---- Runtime defaults (The Peptide Lounge · Grotesk · Medium). JS overrides these.
+       Keep in sync with the "peptide-lounge" palette in theme/themes.js — these
+       values are what the prerendered HTML paints before React hydrates, so a
+       mismatch shows up as a colour flash on first load. ---- */
 :root {
-  --nv-bg: #F1F1ED;
-  --nv-surface: #FBFBF8;
-  --nv-surface-2: #F4F4EE;
-  --nv-ink: #233039;
-  --nv-ink-panel: #2B3742;
-  --nv-primary: #3F5268;
-  --nv-primary-deep: #33435A;
-  --nv-accent: #7D93A8;
-  --nv-line: #E2E6E6;
-  --nv-line-strong: #D2DAD9;
-  --nv-muted: #65727F;
-  --nv-on-primary: #F4F4EF;
-  --nv-on-panel: #E7ECF0;
+  --nv-bg: #F5EDE1;
+  --nv-surface: #FDFAF5;
+  --nv-surface-2: #EFE2CE;
+  --nv-ink: #1B1712;
+  --nv-ink-panel: #17130D;
+  --nv-primary: #211C15;
+  --nv-primary-deep: #100D08;
+  --nv-accent: #A97D24;
+  --nv-line: #E6D9C4;
+  --nv-line-strong: #D6C3A6;
+  --nv-muted: #6B5E4B;
+  --nv-on-primary: #F9F3E7;
+  --nv-on-panel: #ECE0CA;
 
   --nv-font-display: 'Hanken Grotesk', system-ui, sans-serif;
   --nv-font-body: 'Hanken Grotesk', system-ui, sans-serif;
@@ -58,8 +61,9 @@
   --nv-weight-body: 450;
 
   --nv-r: 22px;
-  --nv-shadow: 0 1px 2px rgba(20, 24, 28, 0.04), 0 24px 50px -32px rgba(20, 24, 28, 0.34);
-  --nv-shadow-lg: 0 2px 4px rgba(20, 24, 28, 0.05), 0 44px 90px -44px rgba(20, 24, 28, 0.45);
+  /* Warm-cast shadows — a blue-grey shadow over cream reads as dirty grey. */
+  --nv-shadow: 0 1px 2px rgba(58, 44, 22, 0.05), 0 24px 50px -32px rgba(58, 44, 22, 0.34);
+  --nv-shadow-lg: 0 2px 4px rgba(58, 44, 22, 0.06), 0 44px 90px -44px rgba(58, 44, 22, 0.45);
 
   /* shadcn/ui scale — preserved so existing ui/* primitives keep working. */
   --background: 0 0% 100%;
