@@ -7,6 +7,7 @@ import Marquee from "../ui/Marquee";
 import useKioskMode from "../../lib/useKioskMode";
 import { productsData } from "../data/products";
 import { productPath } from "../../lib/slug";
+import { categoryArt } from "../../lib/categoryArt";
 
 // Kiosk burger menu — top categories, each expanding to a few treatments plus
 // the consultation quiz. Slugs mirror the treatment catalog + questionnaires.
@@ -20,30 +21,32 @@ const KIOSK_MENU = [
 
 const EASE = [0.16, 1, 0.3, 1];
 
-// Mirror the real treatment categories (see data/consultations.jsx). Each item
+// Mirror the real treatment categories (see data/consultations.jsx). Thumbnails
+// come from lib/categoryArt so the nav, hero goal rows, category cards and
+// carousel all show the same vial for a given category.
 const treatmentItems = [
-  { name: "Weight Loss", img: "/products/peptides.png", link: "/treatments/weight-loss" },
-  { name: "Anti-Aging", img: "/products/peptides.png", link: "/treatments/unisex-anti-aging-rx" },
-  { name: "Skin Health", img: "/products/peptides.png", link: "/treatments/unisex-skin-health" },
-  { name: "Sexual Health", img: "/products/peptides.png", link: "/treatments/mens-health" },
-  { name: "Sports Medicine", img: "/products/peptides.png", link: "/treatments/unisex-sports-medicine" },
-];
+  { name: "Weight Loss", goal: "weight-loss" },
+  { name: "Anti-Aging", goal: "unisex-anti-aging-rx" },
+  { name: "Skin Health", goal: "unisex-skin-health" },
+  { name: "Sexual Health", goal: "mens-health" },
+  { name: "Sports Medicine", goal: "unisex-sports-medicine" },
+].map((c) => ({ ...c, img: categoryArt(c.goal), link: `/treatments/${c.goal}` }));
 
 /* Peptide molecule list HIDDEN at client request (2026-06-20). "Supplements" is a
    plain link for now; restore this array + the NavDropdown/MobileGroup to bring the
    peptide menu back.
 const supplementItems = [
-  { name: "Semaglutide", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "Tirzepatide", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "Retatrutide (GLP-3)", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "BPC-157", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "NAD+", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "GHK-Cu", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "Thymosin Alpha 1", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "MOTS-C", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "IGF-1-LR3", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "Tesamorelin", img: "/luvirasupplement.avif", link: "/supplements" },
-  { name: "Glow Blend", img: "/luvirasupplement.avif", link: "/supplements" },
+  { name: "Semaglutide", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "Tirzepatide", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "Retatrutide (GLP-3)", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "BPC-157", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "NAD+", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "GHK-Cu", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "Thymosin Alpha 1", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "MOTS-C", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "IGF-1-LR3", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "Tesamorelin", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
+  { name: "Glow Blend", img: "/products/tpl-nad-10ml.webp", link: "/supplements" },
 ];
 */
 

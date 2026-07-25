@@ -13,6 +13,7 @@ import Reveal from "../components/ui/Reveal";
 import { CONSULTS, CONSULT_ORDER } from "../components/data/consultations";
 import { productsData } from "../components/data/products";
 import { CATEGORY_META } from "../lib/categoryMeta";
+import { DEFAULT_ART } from "../lib/categoryArt";
 import { track, EVENTS } from "../lib/analytics";
 
 const FAQ = lazy(() => import("../components/FAQ"));
@@ -21,10 +22,13 @@ const FAQ = lazy(() => import("../components/FAQ"));
 // background; `overlay` floats a transparent product cutout on top. Sexual
 // health has no exported asset yet, so it falls back to the navy DarkCard.
 const CAT_PHOTOS = {
-  "weight-loss": { photo: "/cat-weightloss.webp?v=2", overlay: "/cat-weightloss-pen.webp", tone: "light", photoPos: "right 16%" },
+  // Overlays are TPL vial renders. The old cat-*-pen / cat-*-bottle cutouts were
+  // NovaMDK-branded; there is no TPL injector-pen render, and weight loss ships as
+  // vials anyway, so the Tirzepatide vial is the more accurate cutout regardless.
+  "weight-loss": { photo: "/cat-weightloss.webp?v=2", overlay: "/products/tpl-tirz-niacinamide-68mg.webp", tone: "light", photoPos: "right 16%" },
   "unisex-skin-health": { photo: "/cat-skinhealth.webp", tone: "light", photoPos: "right center" },
   "unisex-sports-medicine": { photo: "/cat-sportsmedicine.webp", tone: "dark", photoPos: "right center" },
-  "unisex-anti-aging-rx": { photo: "/cat-longetivity.webp", overlay: "/cat-longetivity-bottle.webp", tone: "dark", photoPos: "right center" },
+  "unisex-anti-aging-rx": { photo: "/cat-longetivity.webp", overlay: "/products/tpl-nad-10ml.webp", tone: "dark", photoPos: "right center" },
 };
 
 // Mirror the homepage funnels — each tile browses that goal's shoppable catalog.
@@ -34,6 +38,8 @@ const TREATMENT_CATS = CONSULT_ORDER.map((k) => ({
   blurb: CONSULTS[k].blurb,
   cta: "Browse treatments",
   goal: CONSULTS[k].goalSlug,
+  // per-category vial (CategoryGrid prefers it.art over its `art` fallback)
+  art: CONSULTS[k].img,
   link: `/treatments/${CONSULTS[k].goalSlug}`,
   ...(CAT_PHOTOS[CONSULTS[k].goalSlug] || {}),
 }));
@@ -190,7 +196,7 @@ export default function TreatmentsPage() {
               items={TREATMENT_CATS}
               dark
               featured
-              art="/pill.avif"
+              art={DEFAULT_ART}
               onItemClick={(it) => track(EVENTS.CATEGORY_SELECTED, { category: it.goal, source: "treatments" })}
             />
           </section>  

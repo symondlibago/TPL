@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Reveal from "../ui/Reveal";
+import { DEFAULT_ART } from "../../lib/categoryArt";
 
 function DarkCard({ it, art, onClick, hero = false }) {
   return (
@@ -152,7 +153,7 @@ function LightCard({ it, art, onClick, hero = false }) {
   );
 }
 
-export default function CategoryGrid({ items, art = "/pills-float.avif", dark = false, featured = false, onItemClick }) {
+export default function CategoryGrid({ items, art = DEFAULT_ART, dark = false, featured = false, onItemClick }) {
   // Bento layout: the first tile leads as a wide hero spanning the top, the rest
   // fall into a clean 2×2 (tablet) / 3-up (desktop) beneath — no orphan gaps.
   return (

@@ -1,5 +1,5 @@
 export const PALETTES = [
-  // The house palette. Colours sampled from the brand signage (public/TPL LOGO.jpeg):
+  // The house palette. Colours sampled from the brand signage (brand-assets/TPL LOGO.jpeg):
   // wall #E0C9B0–#FBEDD9, brass #926417–#C49239, sign letters #191006–#1D140B.
   // bg/surface are lifted and desaturated off the wall tone — the wall at full
   // strength reads muddy over large areas and drops text contrast below AA.

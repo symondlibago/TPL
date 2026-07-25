@@ -35,7 +35,7 @@ function ProductCard({ p, delay, floatDelay = 0, onQuickView }) {
             {p.dosageForm}
           </span>
         )}
-        <ComplianceBadges compounded={isCompounded(p)} />
+        <ComplianceBadges compounded={isCompounded(p)} rx={p.rx !== false} />
       </div>
 
       <div className="my-2 flex h-20 items-center justify-center px-2 sm:my-5 sm:h-36 md:h-24 lg:h-32">
@@ -142,7 +142,7 @@ function QuickViewModal({ product, onClose }) {
                   )}
                 </div>
 
-                <ComplianceBadges compounded={isCompounded(product)} className="mt-3" />
+                <ComplianceBadges compounded={isCompounded(product)} rx={product.rx !== false} className="mt-3" />
                 <p className="mt-4 text-[0.9rem] leading-relaxed text-muted">{product.subtitle}</p>
 
                 {product.highlights?.length > 0 && (
@@ -176,11 +176,23 @@ function QuickViewModal({ product, onClose }) {
 // Empty since the final-offerings catalog swap — repopulate with new ids as needed.
 const PINNED_FIRST = {};
 
-export default function TreatmentShop({ category, showBack = false }) {
+export default function TreatmentShop({
+  category,
+  showBack = false,
+  ids = null,
+  // Header/disclaimer are overridable so the grid can also list stocked OTC items,
+  // where "Prescription treatments" and the compounded notice would be wrong.
+  eyebrow = "Prescription treatments",
+  title = null,
+  subtitle = "Pick a treatment to start your visit — a licensed provider confirms the right fit before anything ships.",
+  showDisclaimer = true,
+}) {
   const [quickView, setQuickView] = useState(null);
   const pinned = PINNED_FIRST[category] || [];
+  // `ids` narrows the grid to specific products — used by the Supplements page to
+  // list only what's actually stocked rather than the whole supplements catalog.
   const products = productsData
-    .filter((p) => p.categorySlug === category)
+    .filter((p) => (ids ? ids.includes(p.id) : p.categorySlug === category))
     .sort((a, b) => {
       const ai = pinned.indexOf(a.id);
       const bi = pinned.indexOf(b.id);
@@ -203,12 +215,12 @@ export default function TreatmentShop({ category, showBack = false }) {
               <BackButton />
             </div>
           )}
-          <span className="nv-eyebrow">Prescription treatments</span>
+          <span className="nv-eyebrow">{eyebrow}</span>
           <h2 className="mt-1.5 text-[1.4rem] font-extrabold leading-tight sm:mt-2 sm:text-[clamp(1.8rem,4vw,2.6rem)]">
-            {name}
+            {title || name}
           </h2>
           <p className="mx-auto mt-1.5 max-w-[44ch] text-[0.78rem] text-muted sm:mt-2 sm:text-[1.02rem]">
-            Pick a treatment to start your visit — a licensed provider confirms the right fit before anything ships.
+            {subtitle}
           </p>
         </div>
 
@@ -229,7 +241,9 @@ export default function TreatmentShop({ category, showBack = false }) {
         </div>
 
         {/* required compounded-drug + GLP-1 marketing disclaimers */}
-        <CompoundedDisclaimer className="mx-auto mt-10 max-w-[680px] border-t border-line pt-6 text-center" />
+        {showDisclaimer && (
+          <CompoundedDisclaimer className="mx-auto mt-10 max-w-[680px] border-t border-line pt-6 text-center" />
+        )}
       </div>
 
       <QuickViewModal product={quickView} onClose={() => setQuickView(null)} />

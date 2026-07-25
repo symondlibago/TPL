@@ -5,7 +5,7 @@ import Seo from "../components/Seo";
 import Navbar from "../components/Nav/Navbar";
 import Footer from "../components/Nav/Footer";
 import PageHero from "../components/shop/PageHero";
-// import CategoryGrid from "../components/shop/CategoryGrid"; // re-enable with the peptide list below
+import TreatmentShop from "../components/shop/TreatmentShop";
 import Photo from "../components/ui/Photo";
 import Reveal from "../components/ui/Reveal";
 import { CompoundedDisclaimer } from "../components/Compliance";
@@ -28,6 +28,12 @@ const SUPPLEMENT_CATS = [
 ];
 --------------------------------------------------------------------------- */
 
+/* Stocked, over-the-counter supplements — product ids from data/products.jsx.
+   Listed explicitly rather than by category so the page shows what's actually in
+   stock instead of the whole supplements catalog (which includes the LUVIRA line
+   and the capsule peptides that have no artwork yet). Add ids here as stock lands. */
+const STOCKED_SUPPLEMENT_IDS = [300]; // 300 = Glutaryl
+
 export default function SupplementsPage() {
   return (
     <main className="min-h-screen w-full bg-bg text-ink">
@@ -44,6 +50,16 @@ export default function SupplementsPage() {
         title="Clinical-grade formulas, tailored to your labs"
         subtitle="Compounded peptides and daily-foundation supplements, prepared by FDA-regulated pharmacies and matched to your protocol."
         chips={["503A compounding", "Physician-reviewed", "Purity tested"]}
+      />
+
+      {/* Stocked supplements — same product cards as a treatments category page.
+          Page carries its own CompoundedDisclaimer below, so this grid omits it. */}
+      <TreatmentShop
+        ids={STOCKED_SUPPLEMENT_IDS}
+        eyebrow="In the lounge"
+        title="Stocked supplements"
+        subtitle="Over-the-counter formulas we keep on the shelf — no consultation required."
+        showDisclaimer={false}
       />
 
       {/* Peptide molecule list hidden at client request (2026-06-20) — restore with SUPPLEMENT_CATS above.

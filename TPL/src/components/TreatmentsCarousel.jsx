@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { categoryArt } from "../lib/categoryArt";
 
 const liquidEase = [0.16, 1, 0.3, 1];
 
@@ -153,7 +154,7 @@ export default function Treatments() {
           {c.name}
         </h3>
         <img
-          src="/tpl-pill-alt.avif"
+          src={categoryArt(c.goal)}
           alt=""
           aria-hidden="true"
           loading="lazy"

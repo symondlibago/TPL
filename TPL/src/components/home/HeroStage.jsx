@@ -4,8 +4,25 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { CONSULTS, CONSULT_ORDER } from "../data/consultations";
 import { track, EVENTS } from "../../lib/analytics";
+import { DEFAULT_ART } from "../../lib/categoryArt";
 
 const EASE = [0.22, 0.61, 0.18, 1];
+
+/* ---------------------------------------------------------------------------
+   Client revision (2026-07-26): "Remove all the text in red / have the video take
+   up that whole space", then "bring it back on desktop, remove them on the kiosk
+   and mobile phone view."
+
+   So the eyebrow / headline / sub-copy / CTAs now show on desktop (>= lg) only.
+   Below lg the video grows into the space they used to occupy, and the kiosk
+   layouts drop them entirely. "Explore by goal" stays everywhere.
+
+   Flip this one constant to change it:
+     "desktop-only" → words on desktop, hidden on phone/tablet + kiosk (current)
+     "all"          → the original behaviour, words on every layout
+     "none"         → no words anywhere, video only
+   --------------------------------------------------------------------------- */
+const HERO_TEXT = "desktop-only";
 
 // Legacy card-wall layouts — only used by the retired KioskHero below; kept
 // (and exported) so the big-card hero can be revived without re-building it.
@@ -31,12 +48,12 @@ function cornerClass(index, cols, rows) {
   return "";
 }
 
-/* The floating capsule shown on each category card. `size` sets its height;
-   width is auto so the pill keeps its aspect ratio. */
-function CategoryIcon({ size = 60, className = "" }) {
+/* The floating vial shown on each category card. `size` sets its height;
+   width is auto so the render keeps its aspect ratio. */
+function CategoryIcon({ size = 60, className = "", src = DEFAULT_ART }) {
   return (
     <img
-      src="/tpl-pill.avif"
+      src={src}
       alt=""
       aria-hidden="true"
       loading="lazy"
@@ -267,8 +284,8 @@ function KioskPromoCard({ kiosk = false }) {
   );
 }
 
-/* One row of the "Explore by goal" list — pill thumb, gold tag, serif name. */
-function GoalRow({ tag, name, to, onClick, icon = null, delay = 0, big = false, snug = false }) {
+/* One row of the "Explore by goal" list — vial thumb, gold tag, serif name. */
+function GoalRow({ tag, name, to, onClick, icon = null, art = DEFAULT_ART, delay = 0, big = false, snug = false }) {
   // Rows share a left edge (the column itself is centered) so the list never zigzags.
   // big = kiosk sizing — the goal list is the kiosk's hero element.
   // snug = slightly smaller name for the tablet "Desktop Hero" columns.
@@ -284,7 +301,7 @@ function GoalRow({ tag, name, to, onClick, icon = null, delay = 0, big = false, 
         className={`group flex items-center justify-start border-b border-line transition-colors hover:border-primary/40 ${big ? "gap-5 py-5" : "gap-3.5 py-3"}`}
       >
         <span className={`grid shrink-0 place-items-center rounded-full border border-line bg-surface nv-shadow transition-transform duration-300 group-hover:scale-105 ${big ? "h-18 w-18" : "h-11 w-11"}`}>
-          {icon || <img src="/tpl-pill.avif" alt="" aria-hidden="true" loading="lazy" className={`w-auto object-contain ${big ? "h-10" : "h-6"}`} />}
+          {icon || <img src={art} alt="" aria-hidden="true" loading="lazy" className={`w-auto object-contain ${big ? "h-10" : "h-6"}`} />}
         </span>
         <span className="min-w-0 text-left">
           <span className={`block font-mono uppercase tracking-[0.16em] text-accent ${big ? "text-[0.78rem]" : "text-[0.6rem]"}`}>{tag}</span>
@@ -344,6 +361,15 @@ function HeroHeadline({ compact = false, wide = false }) {
 }
 function EditorialHero({ compact = false, forceWide = false }) {
   const wide = forceWide;
+  const isKiosk = compact || wide;
+  // Kiosk shows the words only when HERO_TEXT is "all"; the public hero shows them
+  // on desktop unless HERO_TEXT is "none". `webTextLgOnly` is what hides them on
+  // phones — the headline renders but is display:none below lg.
+  const showText = isKiosk ? HERO_TEXT === "all" : HERO_TEXT !== "none";
+  const webTextLgOnly = !isKiosk && HERO_TEXT === "desktop-only";
+  // Whether the phone view (< lg) carries the words — drives the video height and
+  // the -mt-24 pull-up, both of which only make sense when there IS a headline.
+  const mobileText = !isKiosk && HERO_TEXT === "all";
   return (
     <section className="relative isolate overflow-hidden bg-bg">
       {/* right-side ambient video — soft-blended into the background */}
@@ -365,15 +391,23 @@ function EditorialHero({ compact = false, forceWide = false }) {
         </div>
       )}
 
-      {/* small-screen top video (default layout only) */}
+      {/* Small-screen top video (default layout only; this block is lg:hidden, so it
+          IS the phone view). With the words gone below lg the video grows into the
+          space the headline block used to occupy and the fade is pushed to the
+          bottom, keeping the footage itself clean. */}
       {!compact && !wide && (
         <div className="pointer-events-none relative lg:hidden">
-          <video src="/right-vid.mp4" autoPlay loop muted playsInline className="block h-72 w-full object-cover sm:h-80" />
+          <video
+            src="/right-vid.mp4"
+            autoPlay loop muted playsInline
+            className={`block w-full object-cover ${mobileText ? "h-72 sm:h-80" : "h-104 sm:h-136"}`}
+          />
           <span
             className="absolute left-0 right-0 top-0 -bottom-0.5"
             style={{
-              background:
-                "linear-gradient(180deg, transparent 0%, color-mix(in oklab, var(--nv-bg) 50%, transparent) 42%, var(--nv-bg) 70%)",
+              background: mobileText
+                ? "linear-gradient(180deg, transparent 0%, color-mix(in oklab, var(--nv-bg) 50%, transparent) 42%, var(--nv-bg) 70%)"
+                : "linear-gradient(180deg, transparent 0%, transparent 58%, color-mix(in oklab, var(--nv-bg) 45%, transparent) 80%, var(--nv-bg) 100%)",
             }}
           />
         </div>
@@ -391,18 +425,27 @@ function EditorialHero({ compact = false, forceWide = false }) {
                 "linear-gradient(180deg, transparent 0%, color-mix(in oklab, var(--nv-bg) 55%, transparent) 60%, var(--nv-bg) 100%)",
             }}
           />
-          <div className="absolute inset-0 z-10 mx-auto flex max-w-2xl flex-col items-center justify-center px-6 text-center">
-            {/* readability comes from the panel behind the text, not a full-video fade */}
-            <div className="rounded-[calc(24px*var(--nv-r-scale,1))] bg-bg/85 px-7 py-8 backdrop-blur-sm nv-shadow sm:px-10">
-              <HeroHeadline compact />
+          {showText && (
+            <div className="absolute inset-0 z-10 mx-auto flex max-w-2xl flex-col items-center justify-center px-6 text-center">
+              {/* readability comes from the panel behind the text, not a full-video fade */}
+              <div className="rounded-[calc(24px*var(--nv-r-scale,1))] bg-bg/85 px-7 py-8 backdrop-blur-sm nv-shadow sm:px-10">
+                <HeroHeadline compact />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
 
       <div className={`mx-auto flex max-w-375 flex-col justify-center px-5 md:px-10 ${compact ? "pb-8" : wide ? "pb-[clamp(2.2rem,4.5vw,3.6rem)] pt-[clamp(2.2rem,4.5vw,3.6rem)]" : "pb-[clamp(2.2rem,4.5vw,3.6rem)] lg:min-h-168 lg:py-[clamp(3rem,6vw,5.5rem)]"}`}>
-        <div className={`relative z-10 ${compact ? "mx-auto max-w-2xl text-center" : wide ? "w-[66%] text-left" : "-mt-24 mx-auto max-w-140 text-center lg:mx-0 lg:mt-0 lg:w-1/2 lg:text-left"}`}>
-          {!compact && <HeroHeadline wide={wide} />}
+        <div className={`relative z-10 ${compact ? "mx-auto max-w-2xl text-center" : wide ? "w-[66%] text-left" : `mx-auto max-w-140 text-center lg:mx-0 lg:mt-0 lg:w-1/2 lg:text-left ${mobileText ? "-mt-24" : "mt-0"}`}`}>
+          {/* The -mt-24 pull-up only exists to lift the headline into the video's
+              bottom fade, so it goes when the phone view has no headline.
+              `hidden lg:block` is what keeps the words off phones. */}
+          {!compact && showText && (
+            <div className={webTextLgOnly ? "hidden lg:block" : undefined}>
+              <HeroHeadline wide={wide} />
+            </div>
+          )}
 
           {/* explore by goal */}
           <div className={`border-t border-line ${compact ? "mt-2 pt-4" : "mt-7 pt-5"}`}>
@@ -422,6 +465,7 @@ function EditorialHero({ compact = false, forceWide = false }) {
                     key={key}
                     tag={c.tag}
                     name={c.name}
+                    art={c.img}
                     to={`/treatments/${c.goalSlug}`}
                     onClick={() => track(EVENTS.CATEGORY_SELECTED, { category: c.goalSlug, source: "hero" })}
                     delay={0.2 + (i % 6) * 0.06}

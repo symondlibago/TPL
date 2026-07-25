@@ -1,10 +1,18 @@
 import React from "react";
-export function ComplianceBadges({ compounded = true, className = "" }) {
+// `rx={false}` is for stocked over-the-counter products (e.g. Glutaryl) — they are
+// neither prescription nor compounded, so both badges would be wrong.
+export function ComplianceBadges({ compounded = true, rx = true, className = "" }) {
   return (
     <div className={`flex flex-wrap items-center gap-1 sm:gap-1.5 ${className}`}>
-      <span className="inline-flex items-center gap-1 rounded-full border border-line bg-surface px-2 py-0.5 font-mono text-[0.5rem] font-semibold uppercase tracking-[0.08em] text-ink sm:gap-1.5 sm:px-2.5 sm:py-1 sm:text-[0.58rem] sm:tracking-[0.1em]">
-        <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Rx only
-      </span>
+      {rx ? (
+        <span className="inline-flex items-center gap-1 rounded-full border border-line bg-surface px-2 py-0.5 font-mono text-[0.5rem] font-semibold uppercase tracking-[0.08em] text-ink sm:gap-1.5 sm:px-2.5 sm:py-1 sm:text-[0.58rem] sm:tracking-[0.1em]">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Rx only
+        </span>
+      ) : (
+        <span className="inline-flex items-center rounded-full border border-line bg-surface px-2 py-0.5 font-mono text-[0.5rem] font-semibold uppercase tracking-[0.08em] text-ink sm:px-2.5 sm:py-1 sm:text-[0.58rem] sm:tracking-[0.1em]">
+          Over the counter
+        </span>
+      )}
       {compounded && (
         <span className="inline-flex items-center rounded-full border border-line bg-surface-2 px-2 py-0.5 font-mono text-[0.5rem] font-semibold uppercase tracking-[0.08em] text-muted sm:px-2.5 sm:py-1 sm:text-[0.58rem] sm:tracking-[0.1em]">
           Compounded

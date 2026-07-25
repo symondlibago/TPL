@@ -19,7 +19,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-sema-b12-2mg.webp",
     questionnaireId: "df9d89e6-db14-4b17-8c34-a178b75c8f95",
     highlights: [
       { text: "Weekly GLP-1 Dosing" },
@@ -47,7 +47,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-sema-b12-10mg.webp",
     questionnaireId: "b8583d31-6f0b-4c2b-9462-0c7544bc7934",
     highlights: [
       { text: "Continuation Vial" },
@@ -75,7 +75,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-sema-glycine-2mg.webp",
     questionnaireId: "d35b721b-1a34-4894-b3e0-64f2dcd3053c",
     highlights: [
       { text: "Weekly GLP-1 Dosing" },
@@ -103,7 +103,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-sema-glycine-10mg.webp",
     questionnaireId: "b655c9c5-c6e7-4cb7-8bf0-2d37dc3609a5",
     highlights: [
       { text: "Continuation Vial" },
@@ -131,7 +131,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-tirz-niacinamide-20mg.webp",
     questionnaireId: "7ec64059-bbff-4448-a48a-39278f111bfa",
     highlights: [
       { text: "Dual GIP / GLP-1" },
@@ -159,7 +159,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-tirz-niacinamide-34mg.webp",
     questionnaireId: "71ceae4f-b7b1-4788-9556-52e32ba02b7e",
     highlights: [
       { text: "Dual GIP / GLP-1" },
@@ -187,7 +187,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-tirz-niacinamide-68mg.webp",
     questionnaireId: "71ceae4f-b7b1-4788-9556-52e32ba02b7e",
     highlights: [
       { text: "Dual GIP / GLP-1" },
@@ -215,7 +215,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-tirz-glycine-20mg.webp",
     questionnaireId: "98f2af82-a1a8-4aad-98a9-730e9040fcf1",
     highlights: [
       { text: "Dual GIP / GLP-1" },
@@ -243,7 +243,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-tirz-glycine-34mg.webp",
     questionnaireId: "d61cbcb1-f9a9-4407-87b3-c4148a9c21fe",
     highlights: [
       { text: "Dual GIP / GLP-1" },
@@ -271,7 +271,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-tirz-glycine-68mg.webp",
     questionnaireId: "d61cbcb1-f9a9-4407-87b3-c4148a9c21fe",
     highlights: [
       { text: "Dual GIP / GLP-1" },
@@ -299,7 +299,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Nasal Spray",
     icon: <Droplets size={16} />,
-    img: "/products/selank.png",
+    img: "/products/tpl-tirz-niacinamide-68mg.webp",
     questionnaireId: "89a610eb-569e-4db6-9f12-3173bf7c553c",
     highlights: [
       { text: "Needle-Free" },
@@ -326,7 +326,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Injection (IM or SC)",
     icon: <Flame size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-lipo-c-10ml.webp",
     questionnaireId: "79c1e11a-ffd0-4dbb-8193-4dc8685510da",
     highlights: [
       { text: "Lipotropic Blend" },
@@ -355,7 +355,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Drops",
     icon: <Droplet size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-sema-drops-15ml.webp",
     questionnaireId: "268d77e8-6ffe-4df1-9164-04e4b7d09e0f",
     highlights: [
       { text: "No Needles Required" },
@@ -383,7 +383,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Drops",
     icon: <Droplet size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-sema-drops-30-23ml.webp",
     questionnaireId: "92eccddb-5040-4f9a-8714-fadaf80b9167",
     highlights: [
       { text: "No Needles Required" },
@@ -411,7 +411,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Drops",
     icon: <Droplet size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-sema-drops-30ml.webp",
     questionnaireId: "92eccddb-5040-4f9a-8714-fadaf80b9167",
     highlights: [
       { text: "No Needles Required" },
@@ -443,7 +443,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Weekly Subcutaneous Injection",
     icon: <Zap size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-nad-10ml.webp",
     questionnaireId: "1e74716c-356b-4680-a026-1245bdce42b6",
     highlights: [
       { text: "Cellular Energy" },
@@ -471,7 +471,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Injection (SC or IM)",
     icon: <ShieldCheck size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-glutathione-30ml.webp",
     questionnaireId: "247c0a3c-f6bc-43ec-a01b-8dd400257a7c",
     highlights: [
       { text: "Master Antioxidant" },
@@ -500,7 +500,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous / IM Injection",
     icon: <Zap size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-nad-6ml.webp",
     questionnaireId: "1e74716c-356b-4680-a026-1245bdce42b6",
     highlights: [
       { text: "Cellular Energy" },
@@ -528,7 +528,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous / IM Injection",
     icon: <Zap size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-nad-6ml.webp",
     questionnaireId: "1e74716c-356b-4680-a026-1245bdce42b6",
     highlights: [
       { text: "Cellular Energy" },
@@ -556,7 +556,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous / IM Injection",
     icon: <Zap size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-nad-10ml.webp",
     questionnaireId: "1e74716c-356b-4680-a026-1245bdce42b6",
     highlights: [
       { text: "Cellular Energy" },
@@ -583,7 +583,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "IV Infusion",
     icon: <Activity size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-nad-10ml.webp",
     questionnaireId: "1e74716c-356b-4680-a026-1245bdce42b6",
     highlights: [
       { text: "250 mg NAD+" },
@@ -609,7 +609,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "IV Infusion",
     icon: <BrainCircuit size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-nad-10ml.webp",
     questionnaireId: "1e74716c-356b-4680-a026-1245bdce42b6",
     highlights: [
       { text: "500 mg NAD+" },
@@ -636,7 +636,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Tablet",
     icon: <Pill size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-nad-6ml.webp",
     questionnaireId: "91480561-864e-4bda-8bad-694696ac2e1f",
     highlights: [
       { text: "Needle-Free" },
@@ -662,7 +662,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Moon size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-nad-10ml.webp",
     questionnaireId: "89a610eb-569e-4db6-9f12-3173bf7c553c",
     highlights: [
       { text: "Nightly Protocol" },
@@ -689,7 +689,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Buccal Mini Troche",
     icon: <Pill size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-nad-10ml.webp",
     questionnaireId: "89a610eb-569e-4db6-9f12-3173bf7c553c",
     highlights: [
       { text: "Needle-Free" },
@@ -719,7 +719,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Oral Tablet",
     icon: <Shield size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-nad-6ml.webp",
     questionnaireId: "c5535eaa-f54c-4be1-a613-323122cd275f",
     highlights: [
       { text: "Bedtime Dosing" },
@@ -747,7 +747,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Oral Tablet",
     icon: <Shield size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-nad-6ml.webp",
     questionnaireId: "c5535eaa-f54c-4be1-a613-323122cd275f",
     highlights: [
       { text: "Bedtime Dosing" },
@@ -775,7 +775,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Oral Tablet",
     icon: <Shield size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-nad-6ml.webp",
     questionnaireId: "c5535eaa-f54c-4be1-a613-323122cd275f",
     highlights: [
       { text: "Bedtime Dosing" },
@@ -806,7 +806,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Topical Cream",
     icon: <Sparkles size={16} />,
-    img: "/products/rapamycintropical.png",
+    img: "/products/tpl-glutathione-30ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Rx Brightening Blend" },
@@ -836,7 +836,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Flex-Dose Tablet",
     icon: <Heart size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "",
     highlights: [
       { text: "On-Demand Dosing" },
@@ -862,7 +862,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Flex-Dose Tablet",
     icon: <Heart size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "",
     highlights: [
       { text: "On-Demand Dosing" },
@@ -888,7 +888,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Flex-Dose Tablet",
     icon: <Flame size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "",
     highlights: [
       { text: "On-Demand Dosing" },
@@ -914,7 +914,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Flex-Dose Tablet",
     icon: <Flame size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "",
     highlights: [
       { text: "Double-Strength Base" },
@@ -940,7 +940,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Flex-Dose Tablet",
     icon: <Flame size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "",
     highlights: [
       { text: "Maximum Strength" },
@@ -970,7 +970,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Topical Cream",
     icon: <Heart size={16} />,
-    img: "/products/rapamycintropical.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "",
     highlights: [
       { text: "On-Demand Use" },
@@ -996,7 +996,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Topical Cream",
     icon: <Flame size={16} />,
-    img: "/products/rapamycintropical.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "",
     highlights: [
       { text: "On-Demand Use" },
@@ -1022,7 +1022,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/products/peptides.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "77fef9b3-aa56-4dc6-ac4d-4dc3c04da262",
     highlights: [
       { text: "On-Demand Dosing" },
@@ -1050,7 +1050,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Sublingual Mini Troche",
     icon: <Pill size={16} />,
-    img: "/products/dihexa.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "f99bcee9-db6f-449a-81fa-34d842a4a834",
     highlights: [
       { text: "Needle-Free" },
@@ -1077,7 +1077,7 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Nasal Spray",
     icon: <Droplets size={16} />,
-    img: "/products/selank.png",
+    img: "/products/tpl-bremelanotide.webp",
     questionnaireId: "496b14b5-15c3-4e63-94ea-b063c3729976",
     highlights: [
       { text: "Needle-Free" },
@@ -1109,8 +1109,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Daily Capsule",
     icon: <Shield size={16} />,
-    img: "/products/kpv.png",
-    imgHowItWorks: "/supplementpill.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "b7f82b01-d377-47df-b815-4d8d7c3b710e",
     highlights: [
       { text: "Anti-Inflammatory Tripeptide" },
@@ -1146,8 +1146,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Daily Capsule",
     icon: <BrainCircuit size={16} />,
-    img: "/products/dihexa.png",
-    imgHowItWorks: "/supplementpill.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "60e63139-c0fd-4ebf-b4ae-ec805dc87621",
     highlights: [
       { text: "Synaptogenic (Investigational)" },
@@ -1183,8 +1183,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Nasal Spray",
     icon: <Droplet size={16} />,
-    img: "/products/selank.png",
-    imgHowItWorks: "/supplementpill.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "1cdda54b-3185-4ac7-b88f-177f0037a190",
     highlights: [
       { text: "Non-Sedating Anxiolytic" },
@@ -1220,8 +1220,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Nasal Spray",
     icon: <BrainCircuit size={16} />,
-    img: "/products/semax.png",
-    imgHowItWorks: "/supplementpill.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "a6ea2b87-99fb-46b0-ae7b-da9228bb5282",
     highlights: [
       { text: "Nootropic + Neuroprotective" },
@@ -1257,8 +1257,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Nasal Spray",
     icon: <Sparkles size={16} />,
-    img: "/products/semax+selank.png",
-    imgHowItWorks: "/supplementpill.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "1cddfacf-309c-42f7-93b8-9103e5afe7d3",
     highlights: [
       { text: "Nootropic + Anxiolytic" },
@@ -1301,8 +1301,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-sema-glycine-10mg.webp",
+    imgHowItWorks: "/products/tpl-sema-glycine-10mg.webp",
     questionnaireId: "",
     highlights: [
       { text: "GLP-1 Receptor Agonist" },
@@ -1339,8 +1339,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-sema-glycine-10mg.webp",
+    imgHowItWorks: "/products/tpl-sema-glycine-10mg.webp",
     questionnaireId: "",
     highlights: [
       { text: "GLP-1 Receptor Agonist" },
@@ -1377,8 +1377,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-sema-glycine-10mg.webp",
+    imgHowItWorks: "/products/tpl-sema-glycine-10mg.webp",
     questionnaireId: "",
     highlights: [
       { text: "GLP-1 Receptor Agonist" },
@@ -1415,8 +1415,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Syringe size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-sema-glycine-10mg.webp",
+    imgHowItWorks: "/products/tpl-sema-glycine-10mg.webp",
     questionnaireId: "",
     highlights: [
       { text: "GLP-1 Receptor Agonist" },
@@ -1453,8 +1453,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Zap size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-tirz-glycine-68mg.webp",
+    imgHowItWorks: "/products/tpl-tirz-glycine-68mg.webp",
     questionnaireId: "",
     highlights: [
       { text: "Dual GIP / GLP-1 Agonist" },
@@ -1491,8 +1491,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Zap size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-tirz-glycine-68mg.webp",
+    imgHowItWorks: "/products/tpl-tirz-glycine-68mg.webp",
     questionnaireId: "",
     highlights: [
       { text: "Dual GIP / GLP-1 Agonist" },
@@ -1529,8 +1529,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Zap size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-tirz-glycine-68mg.webp",
+    imgHowItWorks: "/products/tpl-tirz-glycine-68mg.webp",
     questionnaireId: "",
     highlights: [
       { text: "Dual GIP / GLP-1 Agonist" },
@@ -1567,8 +1567,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Zap size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-tirz-glycine-68mg.webp",
+    imgHowItWorks: "/products/tpl-tirz-glycine-68mg.webp",
     questionnaireId: "",
     highlights: [
       { text: "Dual GIP / GLP-1 Agonist" },
@@ -1605,8 +1605,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Shield size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Tissue Repair Peptide" },
@@ -1642,8 +1642,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Shield size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Tissue Repair Peptide" },
@@ -1679,8 +1679,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Flame size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Triple Agonist (GLP-3)" },
@@ -1717,8 +1717,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Flame size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Triple Agonist (GLP-3)" },
@@ -1755,8 +1755,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Activity size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Cellular Energy" },
@@ -1793,8 +1793,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Activity size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Cellular Energy" },
@@ -1831,8 +1831,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Droplets size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Copper Tripeptide" },
@@ -1869,8 +1869,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Droplets size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Copper Tripeptide" },
@@ -1907,8 +1907,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Droplets size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Copper Tripeptide" },
@@ -1945,8 +1945,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <ShieldCheck size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Immune Modulator" },
@@ -1982,8 +1982,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <ShieldCheck size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Immune Modulator" },
@@ -2019,8 +2019,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <BatteryCharging size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Mitochondrial Support" },
@@ -2056,8 +2056,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <BatteryCharging size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Mitochondrial Support" },
@@ -2093,8 +2093,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Flame size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Long-Acting IGF-1" },
@@ -2131,8 +2131,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <FlaskConical size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "GHRH Analog" },
@@ -2169,8 +2169,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <FlaskConical size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "GHRH Analog" },
@@ -2207,8 +2207,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <FlaskConical size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "GHRH Analog" },
@@ -2245,8 +2245,8 @@ export const productsData = [
     shipping: "Discreetly to Your Door",
     dosageForm: "Subcutaneous Injection",
     icon: <Sparkles size={16} />,
-    img: "/luvirasupplement.avif",
-    imgHowItWorks: "/luvirasupplement.avif",
+    img: "/products/tpl-nad-10ml.webp",
+    imgHowItWorks: "/products/tpl-nad-10ml.webp",
     questionnaireId: "",
     highlights: [
       { text: "Triple Recovery Blend" },
@@ -2271,6 +2271,52 @@ export const productsData = [
       ],
     },
   },
+
+  /* ============================================================ */
+  /* STOCKED SUPPLEMENTS — retail, over-the-counter               */
+  /* ============================================================ */
+  {
+    id: 300,
+    categorySlug: "supplements",
+    categoryName: "Supplements",
+    name: "Glutaryl — Topical Glutathione Spray",
+    subtitle:
+      "Sub-nano topical glutathione delivered through the skin — daily antioxidant defence, immune support and skin brightness.",
+    price: "$125.95",
+    shipping: "Discreetly to Your Door",
+    dosageForm: "Topical Spray",
+    // Retail product, not compounded and not prescription — suppresses both the
+    // "Rx only" and "Compounded" badges (see isCompounded / ComplianceBadges).
+    otc: true,
+    rx: false,
+    icon: <Droplets size={16} />,
+    img: "/products/glutaryl.png",
+    imgHowItWorks: "/products/glutaryl.png",
+    highlights: [
+      { text: "Topical — No Injection" },
+      { text: "Sub-Nano Delivery" },
+      { text: "Daily Antioxidant Support" },
+    ],
+    specs: [
+      { label: "Active Compound", value: "Glutathione (GSH), topical" },
+      { label: "Size", value: "1.0 fl oz (30 mL) pump spray" },
+      { label: "Dosing Schedule", value: "Apply to clean skin daily, or as directed" },
+      { label: "Brand", value: "Auro Wellness" },
+      { label: "Storage", value: "Room temperature, protect from direct sunlight" },
+    ],
+    safety:
+      "Over-the-counter topical supplement — not a compounded or prescription drug, and not evaluated by the FDA. Not intended to diagnose, treat, cure or prevent any disease. Discontinue and speak to a clinician if irritation occurs. Check with your provider before use if pregnant, nursing, or taking other medications.",
+    howItWorks: {
+      title: "Glutathione, absorbed through the skin",
+      description:
+        "Glutathione is the body's primary intracellular antioxidant, but it is poorly absorbed when taken orally. A sub-nano topical delivery system is used here to carry it across the skin barrier instead.",
+      steps: [
+        { icon: <Droplets/>, title: "Topical Delivery", description: "Sub-nano carrier moves glutathione through the skin barrier." },
+        { icon: <Shield/>, title: "Antioxidant Defence", description: "Supports the body's primary intracellular antioxidant pool." },
+        { icon: <Sparkles/>, title: "Skin & Vitality", description: "Used daily for skin brightness and general wellbeing." },
+      ],
+    },
+  },
 ];
 
 /**
@@ -2278,7 +2324,8 @@ export const productsData = [
  * entirely compounded. A brand-name (FDA-approved) product would opt out by
  * carrying `fdaApproved: true`. Drives the "Compounded" label and disclaimer.
  */
-export const isCompounded = (product) => !product?.fdaApproved;
+// `otc: true` marks a stocked retail product (not compounded, not prescription).
+export const isCompounded = (product) => !product?.fdaApproved && !product?.otc;
 
 export const categoryContent = {
   "All": {
