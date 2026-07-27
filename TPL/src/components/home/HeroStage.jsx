@@ -8,20 +8,7 @@ import { DEFAULT_ART } from "../../lib/categoryArt";
 
 const EASE = [0.22, 0.61, 0.18, 1];
 
-/* ---------------------------------------------------------------------------
-   Client revision (2026-07-26): "Remove all the text in red / have the video take
-   up that whole space", then "bring it back on desktop, remove them on the kiosk
-   and mobile phone view."
 
-   So the eyebrow / headline / sub-copy / CTAs now show on desktop (>= lg) only.
-   Below lg the video grows into the space they used to occupy, and the kiosk
-   layouts drop them entirely. "Explore by goal" stays everywhere.
-
-   Flip this one constant to change it:
-     "desktop-only" → words on desktop, hidden on phone/tablet + kiosk (current)
-     "all"          → the original behaviour, words on every layout
-     "none"         → no words anywhere, video only
-   --------------------------------------------------------------------------- */
 const HERO_TEXT = "desktop-only";
 
 // Legacy card-wall layouts — only used by the retired KioskHero below; kept
@@ -284,29 +271,36 @@ function KioskPromoCard({ kiosk = false }) {
   );
 }
 
-/* One row of the "Explore by goal" list — vial thumb, gold tag, serif name. */
+
 function GoalRow({ tag, name, to, onClick, icon = null, art = DEFAULT_ART, delay = 0, big = false, snug = false }) {
-  // Rows share a left edge (the column itself is centered) so the list never zigzags.
   // big = kiosk sizing — the goal list is the kiosk's hero element.
   // snug = slightly smaller name for the tablet "Desktop Hero" columns.
+  // The phone layout is the same rule-underneath row as desktop, just two per line
+  // and scaled down — not a boxed card.
+  const tight = !big && !snug;
   return (
     <motion.div
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: EASE, delay }}
+      // min-w-0: grid items default to min-width:auto, so a long goal name widens
+      // its column past 1fr and pushes the whole page into horizontal overflow.
+      className="h-full min-w-0"
     >
       <Link
         to={to}
         onClick={onClick}
-        className={`group flex items-center justify-start border-b border-line transition-colors hover:border-primary/40 ${big ? "gap-5 py-5" : "gap-3.5 py-3"}`}
+        className={`group flex h-full items-center justify-start border-b border-line transition-colors hover:border-primary/40 ${
+          big ? "gap-5 py-5" : tight ? "gap-2 py-2.5 lg:gap-3.5 lg:py-3" : "gap-3.5 py-3"
+        }`}
       >
-        <span className={`grid shrink-0 place-items-center rounded-full border border-line bg-surface nv-shadow transition-transform duration-300 group-hover:scale-105 ${big ? "h-18 w-18" : "h-11 w-11"}`}>
-          {icon || <img src={art} alt="" aria-hidden="true" loading="lazy" className={`w-auto object-contain ${big ? "h-10" : "h-6"}`} />}
+        <span className={`grid shrink-0 place-items-center rounded-full border border-line bg-surface nv-shadow transition-transform duration-300 group-hover:scale-105 ${big ? "h-18 w-18" : tight ? "h-8 w-8 lg:h-11 lg:w-11" : "h-11 w-11"}`}>
+          {icon || <img src={art} alt="" aria-hidden="true" loading="lazy" className={`w-auto object-contain ${big ? "h-10" : tight ? "h-4.5 lg:h-6" : "h-6"}`} />}
         </span>
         <span className="min-w-0 text-left">
-          <span className={`block font-mono uppercase tracking-[0.16em] text-accent ${big ? "text-[0.78rem]" : "text-[0.6rem]"}`}>{tag}</span>
+          <span className={`block font-mono uppercase tracking-[0.16em] text-accent ${big ? "text-[0.78rem]" : tight ? "text-[0.42rem] leading-tight tracking-[0.08em] lg:text-[0.6rem] lg:tracking-[0.16em]" : "text-[0.6rem]"}`}>{tag}</span>
           <span
-            className={`block truncate leading-snug text-ink transition-colors group-hover:text-primary ${big ? "text-[1.42rem]" : snug ? "text-[0.98rem]" : "text-[1.06rem]"}`}
+            className={`block text-ink transition-colors group-hover:text-primary lg:truncate lg:leading-snug ${big ? "text-[1.42rem]" : snug ? "text-[0.98rem]" : tight ? "text-[0.68rem] leading-tight lg:text-[1.06rem]" : "text-[1.06rem] leading-snug"}`}
             style={{ fontFamily: "'Fraunces', Georgia, 'Times New Roman', serif" }}
           >
             {name}
@@ -319,8 +313,10 @@ function GoalRow({ tag, name, to, onClick, icon = null, art = DEFAULT_ART, delay
 
 /* The hero's eyebrow → headline → sub → CTAs block, shared by every layout.
    compact = centered over the overlay video; wide = the desktop split forced
-   at tablet width; default = centered until lg, then left. */
-function HeroHeadline({ compact = false, wide = false }) {
+   at tablet width; default = centered until lg, then left.
+   minimal = eyebrow + headline only — the phone layout in the client's design,
+   which drops the sub-copy and the two CTAs. */
+function HeroHeadline({ compact = false, wide = false, minimal = false }) {
   const justify = compact ? "justify-center" : wide ? "justify-start" : "justify-center lg:justify-start";
   const mx = compact ? "mx-auto" : wide ? "" : "mx-auto lg:mx-0";
   return (
@@ -339,12 +335,14 @@ function HeroHeadline({ compact = false, wide = false }) {
         Modern healthcare, <em className="whitespace-nowrap italic text-accent">built around you</em>
       </h1>
 
+      {minimal ? null : (
       <p className={`mt-4 max-w-[42ch] leading-relaxed text-muted ${mx} ${compact ? "text-[0.95rem]" : "text-[clamp(0.95rem,1.1vw,1.02rem)]"}`}>
         Personalized treatment plans designed by licensed medical providers.
       </p>
+      )}
 
       {/* CTAs */}
-      <div className={`flex flex-wrap items-center gap-5 ${compact ? "mt-6" : "mt-6"} ${justify}`}>
+      <div className={`flex flex-wrap items-center gap-5 ${minimal ? "hidden" : ""} ${compact ? "mt-6" : "mt-6"} ${justify}`}>
         <Link
           to="/treatments"
           onClick={() => track(EVENTS.BROWSE_TREATMENTS, { source: "hero" })}
@@ -367,9 +365,9 @@ function EditorialHero({ compact = false, forceWide = false }) {
   // phones — the headline renders but is display:none below lg.
   const showText = isKiosk ? HERO_TEXT === "all" : HERO_TEXT !== "none";
   const webTextLgOnly = !isKiosk && HERO_TEXT === "desktop-only";
-  // Whether the phone view (< lg) carries the words — drives the video height and
-  // the -mt-24 pull-up, both of which only make sense when there IS a headline.
-  const mobileText = !isKiosk && HERO_TEXT === "all";
+  // The phone view carries the (minimal) headline unless HERO_TEXT is "none";
+  // when it does, the video sits back at its original height to leave room.
+  const mobileText = !isKiosk && HERO_TEXT !== "none";
   return (
     <section className="relative isolate overflow-hidden bg-bg">
       {/* right-side ambient video — soft-blended into the background */}
@@ -397,18 +395,12 @@ function EditorialHero({ compact = false, forceWide = false }) {
           bottom, keeping the footage itself clean. */}
       {!compact && !wide && (
         <div className="pointer-events-none relative lg:hidden">
+          {/* No bottom gradient — client asked for a clean edge where the video meets
+              the page, rather than the old fade into the background colour. */}
           <video
             src="/right-vid.mp4"
             autoPlay loop muted playsInline
             className={`block w-full object-cover ${mobileText ? "h-72 sm:h-80" : "h-104 sm:h-136"}`}
-          />
-          <span
-            className="absolute left-0 right-0 top-0 -bottom-0.5"
-            style={{
-              background: mobileText
-                ? "linear-gradient(180deg, transparent 0%, color-mix(in oklab, var(--nv-bg) 50%, transparent) 42%, var(--nv-bg) 70%)"
-                : "linear-gradient(180deg, transparent 0%, transparent 58%, color-mix(in oklab, var(--nv-bg) 45%, transparent) 80%, var(--nv-bg) 100%)",
-            }}
           />
         </div>
       )}
@@ -437,27 +429,54 @@ function EditorialHero({ compact = false, forceWide = false }) {
       )}
 
       <div className={`mx-auto flex max-w-375 flex-col justify-center px-5 md:px-10 ${compact ? "pb-8" : wide ? "pb-[clamp(2.2rem,4.5vw,3.6rem)] pt-[clamp(2.2rem,4.5vw,3.6rem)]" : "pb-[clamp(2.2rem,4.5vw,3.6rem)] lg:min-h-168 lg:py-[clamp(3rem,6vw,5.5rem)]"}`}>
-        <div className={`relative z-10 ${compact ? "mx-auto max-w-2xl text-center" : wide ? "w-[66%] text-left" : `mx-auto max-w-140 text-center lg:mx-0 lg:mt-0 lg:w-1/2 lg:text-left ${mobileText ? "-mt-24" : "mt-0"}`}`}>
-          {/* The -mt-24 pull-up only exists to lift the headline into the video's
-              bottom fade, so it goes when the phone view has no headline.
-              `hidden lg:block` is what keeps the words off phones. */}
+        {/* No -mt-24 pull-up any more: it existed to lift the headline into the
+            video's bottom fade, and that fade is gone at the client's request. */}
+        <div className={`relative z-10 ${compact ? "mx-auto max-w-2xl text-center" : wide ? "w-[66%] text-left" : "mx-auto mt-0 max-w-140 pt-7 text-center lg:mx-0 lg:w-1/2 lg:pt-0 lg:text-left"}`}>
+          {/* Phones get eyebrow + headline only (client's design); desktop keeps the
+              full block with sub-copy and CTAs. Kiosk shows nothing — see HERO_TEXT. */}
           {!compact && showText && (
-            <div className={webTextLgOnly ? "hidden lg:block" : undefined}>
-              <HeroHeadline wide={wide} />
-            </div>
+            <>
+              {webTextLgOnly && (
+                <div className="lg:hidden">
+                  <HeroHeadline minimal />
+                </div>
+              )}
+              <div className={webTextLgOnly ? "hidden lg:block" : undefined}>
+                <HeroHeadline wide={wide} />
+              </div>
+            </>
           )}
 
-          {/* explore by goal */}
-          <div className={`border-t border-line ${compact ? "mt-2 pt-4" : "mt-7 pt-5"}`}>
+          {/* explore by goal — the rule and the label are desktop/kiosk only; the
+              client's phone design goes straight from the headline into the cards */}
+          <div
+            className={
+              compact || wide
+                ? `border-t border-line ${compact ? "mt-2 pt-4" : "mt-7 pt-5"}`
+                : "mt-6 lg:mt-7 lg:border-t lg:border-line lg:pt-5"
+            }
+          >
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
-              className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted"
+              className={`font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted ${
+                compact || wide ? "" : "hidden lg:inline"
+              }`}
             >
               Explore by goal
             </motion.span>
-            <div className={`mt-3 grid sm:grid-cols-2 ${wide ? "gap-x-5" : compact ? "gap-x-6" : "gap-x-8"}`}>
+            {/* Web hero: 2-up bordered cards on phones (client reference), reverting
+                to the borderless 2-column list from lg. Kiosk/tablet unchanged. */}
+            <div
+              className={`mt-3 grid items-stretch ${
+                wide
+                  ? "sm:grid-cols-2 gap-x-5"
+                  : compact
+                  ? "sm:grid-cols-2 gap-x-6"
+                  : "grid-cols-2 gap-2 lg:gap-x-8 lg:gap-y-0"
+              }`}
+            >
               {CONSULT_ORDER.map((key, i) => {
                 const c = CONSULTS[key];
                 return (
