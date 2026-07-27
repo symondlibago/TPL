@@ -291,16 +291,19 @@ function GoalRow({ tag, name, to, onClick, icon = null, art = DEFAULT_ART, delay
         to={to}
         onClick={onClick}
         className={`group flex h-full items-center justify-start border-b border-line transition-colors hover:border-primary/40 ${
-          big ? "gap-5 py-5" : tight ? "gap-2 py-2.5 lg:gap-3.5 lg:py-3" : "gap-3.5 py-3"
+          big ? "gap-5 py-5" : tight ? "gap-1.5 py-3 lg:gap-3.5 lg:py-3" : "gap-3.5 py-3"
         }`}
       >
-        <span className={`grid shrink-0 place-items-center rounded-full border border-line bg-surface nv-shadow transition-transform duration-300 group-hover:scale-105 ${big ? "h-18 w-18" : tight ? "h-8 w-8 lg:h-11 lg:w-11" : "h-11 w-11"}`}>
-          {icon || <img src={art} alt="" aria-hidden="true" loading="lazy" className={`w-auto object-contain ${big ? "h-10" : tight ? "h-4.5 lg:h-6" : "h-6"}`} />}
+        <span className={`grid shrink-0 place-items-center rounded-full border border-line bg-surface nv-shadow transition-transform duration-300 group-hover:scale-105 ${big ? "h-18 w-18" : tight ? "h-9 w-9 lg:h-11 lg:w-11" : "h-11 w-11"}`}>
+          {icon || <img src={art} alt="" aria-hidden="true" loading="lazy" className={`w-auto object-contain ${big ? "h-10" : tight ? "h-5 lg:h-6" : "h-6"}`} />}
         </span>
         <span className="min-w-0 text-left">
-          <span className={`block font-mono uppercase tracking-[0.16em] text-accent ${big ? "text-[0.78rem]" : tight ? "text-[0.42rem] leading-tight tracking-[0.08em] lg:text-[0.6rem] lg:tracking-[0.16em]" : "text-[0.6rem]"}`}>{tag}</span>
+          {/* Tag stays on one line at 330–390px: the longest is "Longevity & Anti-Aging",
+              which needs this size/tracking to clear a ~114px column. The name is the
+              part that matters, so it keeps the larger size and wraps if it must. */}
+          <span className={`block font-mono uppercase tracking-[0.16em] text-accent ${big ? "text-[0.78rem]" : tight ? "text-[0.46rem] leading-tight tracking-[0.04em] lg:text-[0.6rem] lg:tracking-[0.16em]" : "text-[0.6rem]"}`}>{tag}</span>
           <span
-            className={`block text-ink transition-colors group-hover:text-primary lg:truncate lg:leading-snug ${big ? "text-[1.42rem]" : snug ? "text-[0.98rem]" : tight ? "text-[0.68rem] leading-tight lg:text-[1.06rem]" : "text-[1.06rem] leading-snug"}`}
+            className={`block text-ink transition-colors group-hover:text-primary lg:truncate lg:leading-snug ${big ? "text-[1.42rem]" : snug ? "text-[0.98rem]" : tight ? "text-[0.82rem] leading-tight lg:text-[1.06rem]" : "text-[1.06rem] leading-snug"}`}
             style={{ fontFamily: "'Fraunces', Georgia, 'Times New Roman', serif" }}
           >
             {name}
