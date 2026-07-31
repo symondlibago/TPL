@@ -11,20 +11,15 @@ const EASE = [0.22, 0.61, 0.18, 1];
 
 const HERO_TEXT = "desktop-only";
 
-// Legacy card-wall layouts — only used by the retired KioskHero below; kept
-// (and exported) so the big-card hero can be revived without re-building it.
 export const KIOSK_VARIANTS = {
   grid:      { wrap: "grid grid-cols-2 gap-4",   helpTile: true, card: () => ({ mode: "tile", span: "" }) },
   stack:     { wrap: "grid grid-cols-1 gap-3.5",                 card: () => ({ mode: "row", span: "" }) },
   spotlight: { wrap: "grid grid-cols-2 gap-4",   card: (i) => (i === 0 ? { mode: "row", span: "col-span-2", featured: true } : { mode: "tile", span: "" }) },
-  // Compact, fit-to-screen layouts — no scrolling to see the full category list.
   list:      { wrap: "grid grid-cols-1 gap-2",                 card: () => ({ mode: "comprow", span: "" }) },
   mosaic:    { wrap: "grid grid-cols-2 gap-2", helpTile: true, compact: true, cornerFrame: true, card: () => ({ mode: "comptile", span: "" }) },
 };
 export const KIOSK_VARIANT_IDS = ["overlay", "desktop"];
 
-// For the Compact Grid "framed" look: square only the grid's four outer corners
-// (top-left, top-right, bottom-left, bottom-right) so it reads as one panel.
 function cornerClass(index, cols, rows) {
   const row = Math.floor(index / cols);
   const col = index % cols;
@@ -35,8 +30,6 @@ function cornerClass(index, cols, rows) {
   return "";
 }
 
-/* The floating vial shown on each category card. `size` sets its height;
-   width is auto so the render keeps its aspect ratio. */
 function CategoryIcon({ size = 60, className = "", src = DEFAULT_ART }) {
   return (
     <img
@@ -50,8 +43,6 @@ function CategoryIcon({ size = 60, className = "", src = DEFAULT_ART }) {
   );
 }
 
-/* Fills the spare cell in the 2-col Spotlight Grid — a high-contrast prompt
-   that gives walk-up, undecided visitors an obvious path into the quiz. */
 function HelpChooseTile({ delay, compact = false, corner = "" }) {
   const R = "rounded-[calc(22px*var(--nv-r-scale,1))]";
   return (
@@ -145,9 +136,6 @@ function GlassCard({ c, delay, mode = "auto", featured = false, className = "", 
   );
 }
 
-/* Enlarged version of the same glass card for the kiosk. Same look, bigger —
-   "tile" is a tall vertical card, "row" is a wide full-width card, and
-   `featured` is the premium hero banner at the top of the Featured layout. */
 function BigGlassCard({ c, delay, row, compact = false, featured = false, className = "", corner = "" }) {
   const R = "rounded-[calc(22px*var(--nv-r-scale,1))]";
 
@@ -247,9 +235,6 @@ function BigGlassCard({ c, delay, row, compact = false, featured = false, classN
   );
 }
 
-/* Wide homepage promo — a silent, looping video. Muted autoplay is always
-   allowed, so it plays everywhere without sound. Shorter in kiosk mode so the
-   hero + cards + video all fit on one screen. */
 function KioskPromoCard({ kiosk = false }) {
   return (
     <motion.div
@@ -271,20 +256,146 @@ function KioskPromoCard({ kiosk = false }) {
   );
 }
 
+const BLANK_VIAL = "/products/tpl-vial-blank.webp";
+const HERO_FEATURED = {
+  tag: "Most requested",
+  name: "Tirzepatide",
+  desc: "Metabolic and weight management",
+  // trimmed copy: the shared product-card render keeps its transparent margin,
+  // which would make the vial read ~26% shorter than its box here.
+  img: "/products/tpl-tirz-hero.webp",
+  to: "/product/5",
+};
+
+const HERO_TREATMENTS = [
+  { name: "Sermorelin", desc: "Growth hormone support", img: BLANK_VIAL, to: "/product/24" },
+  { name: "Tesamorelin", desc: "Body composition", img: BLANK_VIAL, to: "/treatments" },
+  { name: "Glutathione", desc: "Antioxidant infusion", img: "/products/tpl-glutathione-serum.webp", to: "/product/300" },
+  { name: "PT-141", desc: "Libido and desire", img: "/products/tpl-pt141.webp", to: "/product/37" },
+  { name: "Oxytocin", desc: "Mood and connection", img: BLANK_VIAL, to: "/treatments" },
+  { name: "Copper peptide serum", desc: "Topical skin repair", img: "/products/tpl-copper-peptide.webp", to: "/treatments" },
+];
+
+// `large` = kiosk sizing. The kiosk is a walk-up display read from a distance, so it
+// gets its own unprefixed scale rather than inheriting the desktop `lg:` values.
+function ExploreTreatments({ large = false }) {
+  return (
+    <>
+      <div className="flex items-baseline justify-between gap-4">
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
+          className={`font-mono uppercase tracking-[0.2em] text-muted ${large ? "text-[0.8rem]" : "text-[0.62rem]"}`}
+        >
+          Explore treatments
+        </motion.span>
+        <Link
+          to="/treatments"
+          onClick={() => track(EVENTS.BROWSE_TREATMENTS, { source: "hero-treatments" })}
+          className={`group flex items-center gap-1.5 font-mono uppercase tracking-[0.16em] text-muted transition-colors hover:text-ink ${
+            large ? "text-[0.74rem]" : "text-[0.58rem] lg:text-[0.62rem]"
+          }`}
+        >
+          All treatments
+          <ArrowRight size={large ? 15 : 12} className="transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
+        className={large ? "mt-5" : "mt-4"}
+      >
+        <Link
+          to={HERO_FEATURED.to}
+          className={`group relative flex items-center gap-3 overflow-hidden rounded-[calc(14px*var(--nv-r-scale,1))] transition-transform duration-300 hover:-translate-y-0.5 ${
+            large ? "px-6 py-6" : "px-4 py-4 lg:py-5"
+          }`}
+          style={{ background: "linear-gradient(100deg, color-mix(in oklab, var(--nv-accent) 60%, var(--nv-surface)) 0%, color-mix(in oklab, var(--nv-accent) 80%, var(--nv-surface)) 100%)" }}
+        >
+          <span className="relative z-10 min-w-0 flex-1 text-left">
+            <span className={`block font-mono uppercase tracking-[0.18em] text-ink/70 ${large ? "text-[0.72rem]" : "text-[0.5rem] lg:text-[0.58rem]"}`}>{HERO_FEATURED.tag}</span>
+            <span
+              className={`mt-0.5 block leading-tight text-ink ${large ? "text-[2.2rem]" : "text-[1.25rem] lg:text-[1.7rem]"}`}
+              style={{ fontFamily: "'Fraunces', Georgia, 'Times New Roman', serif" }}
+            >
+              {HERO_FEATURED.name}
+            </span>
+            <span className={`mt-0.5 block leading-snug text-ink/75 ${large ? "text-[1.02rem]" : "text-[0.68rem] lg:text-[0.84rem]"}`}>{HERO_FEATURED.desc}</span>
+          </span>
+          {/* The phone keeps the vial inside the card at its natural height. The
+              oversize-and-crop framing is desktop/kiosk only — note scale/translate
+              need lg: prefixes or they leak down to phones. */}
+          <span className={`relative z-0 shrink-0 self-stretch ${large ? "w-40" : "w-12 lg:w-36"}`}>
+            <img
+              src={HERO_FEATURED.img}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className={`absolute left-1/2 w-auto max-w-none origin-bottom -translate-x-1/2 object-contain object-bottom transition-transform duration-500 ${
+                large
+                  ? "-bottom-16 h-[calc(100%+3.5rem)] translate-y-12 scale-[1.6] group-hover:scale-[1.68]"
+                  : "bottom-0 h-full translate-y-0 scale-100 group-hover:scale-105 lg:-bottom-14 lg:h-[calc(100%+3rem)] lg:translate-y-11 lg:scale-[1.6] lg:group-hover:scale-[1.68]"
+              }`}
+            />
+          </span>
+          <ArrowRight size={large ? 26 : 18} className="relative z-10 shrink-0 text-ink transition-transform group-hover:translate-x-1" />
+        </Link>
+      </motion.div>
+      <div className={`grid grid-cols-2 items-stretch ${large ? "mt-4 gap-4" : "mt-3 gap-3 lg:gap-3.5"}`}>
+        {HERO_TREATMENTS.map((t, i) => (
+          <motion.div
+            key={t.name}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: EASE, delay: 0.26 + i * 0.05 }}
+            className="h-full min-w-0"
+          >
+            <Link
+              to={t.to}
+              className={`group relative flex h-full items-center gap-2 overflow-hidden rounded-[calc(12px*var(--nv-r-scale,1))] border border-line bg-surface nv-shadow transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/45 ${
+                large ? "px-5 py-5" : "px-3 py-3.5 lg:py-4"
+              }`}
+            >
+              <span className="relative z-10 flex min-w-0 flex-1 flex-col items-start text-left">
+                <span className={`font-semibold leading-tight text-ink transition-colors group-hover:text-primary ${large ? "text-[1.24rem]" : "text-[0.78rem] lg:text-[0.94rem]"}`}>
+                  {t.name}
+                </span>
+                <span className={`mt-0.5 leading-snug text-muted ${large ? "text-[0.9rem]" : "text-[0.6rem] lg:text-[0.72rem]"}`}>{t.desc}</span>
+                <span className={`mt-1.5 block h-0.5 rounded-full bg-accent/60 ${large ? "w-7" : "w-5"}`} />
+              </span>
+              {t.img && (
+                <span className={`relative z-0 shrink-0 self-stretch ${large ? "w-28" : "w-10 lg:w-24"}`}>
+                  <img
+                    src={t.img}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className={`absolute left-1/2 w-auto max-w-none origin-bottom -translate-x-1/2 object-contain object-bottom transition-transform duration-500 ${
+                      large
+                        ? "-bottom-11 h-[calc(100%+3rem)] translate-y-9 scale-[1.4] group-hover:scale-[1.48]"
+                        : "bottom-0 h-full translate-y-0 scale-100 group-hover:scale-105 lg:-bottom-9 lg:h-[calc(100%+2.5rem)] lg:translate-y-8 lg:scale-[1.4] lg:group-hover:scale-[1.48]"
+                    }`}
+                  />
+                </span>
+              )}
+              <ArrowRight size={large ? 20 : 14} className="relative z-10 shrink-0 text-ink transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </>
+  );
+}
 
 function GoalRow({ tag, name, to, onClick, icon = null, art = DEFAULT_ART, delay = 0, big = false, snug = false }) {
-  // big = kiosk sizing — the goal list is the kiosk's hero element.
-  // snug = slightly smaller name for the tablet "Desktop Hero" columns.
-  // The phone layout is the same rule-underneath row as desktop, just two per line
-  // and scaled down — not a boxed card.
   const tight = !big && !snug;
   return (
     <motion.div
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: EASE, delay }}
-      // min-w-0: grid items default to min-width:auto, so a long goal name widens
-      // its column past 1fr and pushes the whole page into horizontal overflow.
       className="h-full min-w-0"
     >
       <Link
@@ -298,9 +409,6 @@ function GoalRow({ tag, name, to, onClick, icon = null, art = DEFAULT_ART, delay
           {icon || <img src={art} alt="" aria-hidden="true" loading="lazy" className={`w-auto object-contain ${big ? "h-10" : tight ? "h-5 lg:h-6" : "h-6"}`} />}
         </span>
         <span className="min-w-0 text-left">
-          {/* Tag stays on one line at 330–390px: the longest is "Longevity & Anti-Aging",
-              which needs this size/tracking to clear a ~114px column. The name is the
-              part that matters, so it keeps the larger size and wraps if it must. */}
           <span className={`block font-mono uppercase tracking-[0.16em] text-accent ${big ? "text-[0.78rem]" : tight ? "text-[0.46rem] leading-tight tracking-[0.04em] lg:text-[0.6rem] lg:tracking-[0.16em]" : "text-[0.6rem]"}`}>{tag}</span>
           <span
             className={`block text-ink transition-colors group-hover:text-primary lg:truncate lg:leading-snug ${big ? "text-[1.42rem]" : snug ? "text-[0.98rem]" : tight ? "text-[0.82rem] leading-tight lg:text-[1.06rem]" : "text-[1.06rem] leading-snug"}`}
@@ -314,11 +422,6 @@ function GoalRow({ tag, name, to, onClick, icon = null, art = DEFAULT_ART, delay
   );
 }
 
-/* The hero's eyebrow → headline → sub → CTAs block, shared by every layout.
-   compact = centered over the overlay video; wide = the desktop split forced
-   at tablet width; default = centered until lg, then left.
-   minimal = eyebrow + headline only — the phone layout in the client's design,
-   which drops the sub-copy and the two CTAs. */
 function HeroHeadline({ compact = false, wide = false, minimal = false }) {
   const justify = compact ? "justify-center" : wide ? "justify-start" : "justify-center lg:justify-start";
   const mx = compact ? "mx-auto" : wide ? "" : "mx-auto lg:mx-0";
@@ -363,13 +466,8 @@ function HeroHeadline({ compact = false, wide = false, minimal = false }) {
 function EditorialHero({ compact = false, forceWide = false }) {
   const wide = forceWide;
   const isKiosk = compact || wide;
-  // Kiosk shows the words only when HERO_TEXT is "all"; the public hero shows them
-  // on desktop unless HERO_TEXT is "none". `webTextLgOnly` is what hides them on
-  // phones — the headline renders but is display:none below lg.
   const showText = isKiosk ? HERO_TEXT === "all" : HERO_TEXT !== "none";
   const webTextLgOnly = !isKiosk && HERO_TEXT === "desktop-only";
-  // The phone view carries the (minimal) headline unless HERO_TEXT is "none";
-  // when it does, the video sits back at its original height to leave room.
   const mobileText = !isKiosk && HERO_TEXT !== "none";
   return (
     <section className="relative isolate overflow-hidden bg-bg">
@@ -392,10 +490,6 @@ function EditorialHero({ compact = false, forceWide = false }) {
         </div>
       )}
 
-      {/* Small-screen top video (default layout only; this block is lg:hidden, so it
-          IS the phone view). With the words gone below lg the video grows into the
-          space the headline block used to occupy and the fade is pushed to the
-          bottom, keeping the footage itself clean. */}
       {!compact && !wide && (
         <div className="pointer-events-none relative lg:hidden">
           {/* No bottom gradient — client asked for a clean edge where the video meets
@@ -432,11 +526,7 @@ function EditorialHero({ compact = false, forceWide = false }) {
       )}
 
       <div className={`mx-auto flex max-w-375 flex-col justify-center px-5 md:px-10 ${compact ? "pb-8" : wide ? "pb-[clamp(2.2rem,4.5vw,3.6rem)] pt-[clamp(2.2rem,4.5vw,3.6rem)]" : "pb-[clamp(2.2rem,4.5vw,3.6rem)] lg:min-h-168 lg:py-[clamp(3rem,6vw,5.5rem)]"}`}>
-        {/* No -mt-24 pull-up any more: it existed to lift the headline into the
-            video's bottom fade, and that fade is gone at the client's request. */}
         <div className={`relative z-10 ${compact ? "mx-auto max-w-2xl text-center" : wide ? "w-[66%] text-left" : "mx-auto mt-0 max-w-140 pt-7 text-center lg:mx-0 lg:w-1/2 lg:pt-0 lg:text-left"}`}>
-          {/* Phones get eyebrow + headline only (client's design); desktop keeps the
-              full block with sub-copy and CTAs. Kiosk shows nothing — see HERO_TEXT. */}
           {!compact && showText && (
             <>
               {webTextLgOnly && (
@@ -459,54 +549,10 @@ function EditorialHero({ compact = false, forceWide = false }) {
                 : "mt-6 lg:mt-7 lg:border-t lg:border-line lg:pt-5"
             }
           >
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
-              className={`font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted ${
-                compact || wide ? "" : "hidden lg:inline"
-              }`}
-            >
-              Explore by goal
-            </motion.span>
-            {/* Web hero: 2-up bordered cards on phones (client reference), reverting
-                to the borderless 2-column list from lg. Kiosk/tablet unchanged. */}
-            <div
-              className={`mt-3 grid items-stretch ${
-                wide
-                  ? "sm:grid-cols-2 gap-x-5"
-                  : compact
-                  ? "sm:grid-cols-2 gap-x-6"
-                  : "grid-cols-2 gap-2 lg:gap-x-8 lg:gap-y-0"
-              }`}
-            >
-              {CONSULT_ORDER.map((key, i) => {
-                const c = CONSULTS[key];
-                return (
-                  <GoalRow
-                    key={key}
-                    tag={c.tag}
-                    name={c.name}
-                    art={c.img}
-                    to={`/treatments/${c.goalSlug}`}
-                    onClick={() => track(EVENTS.CATEGORY_SELECTED, { category: c.goalSlug, source: "hero" })}
-                    delay={0.2 + (i % 6) * 0.06}
-                    big={compact}
-                    snug={wide}
-                  />
-                );
-              })}
-              <GoalRow
-                tag="All categories"
-                name="Browse all treatments"
-                to="/treatments"
-                onClick={() => track(EVENTS.BROWSE_TREATMENTS, { source: "hero-goals" })}
-                icon={<ArrowRight size={16} className="text-ink" />}
-                delay={0.2 + CONSULT_ORDER.length * 0.06}
-                big={compact}
-                snug={wide}
-              />
-            </div>
+            {/* Every variant now shows the treatment shortlist. `compact` is the
+                kiosk overlay, which gets the larger walk-up scale; `wide` (tablet)
+                is above the lg breakpoint so it picks up the desktop sizing. */}
+            <ExploreTreatments large={compact} />
           </div>
 
         </div>
@@ -600,10 +646,6 @@ function KioskHero({ kiosk }) {
             </motion.div>
           )}
         </div>
-
-        {/* Categories — all visible. Normal site: stacked rows on mobile, a 3-
-            then 5-up grid on larger screens. Kiosk: bigger cards in the layout
-            the client picked (grid · directory · spotlight). */}
         {kiosk ? (
           (() => {
             const cells = CONSULT_ORDER.length + (kiosk.helpTile ? 1 : 0);
