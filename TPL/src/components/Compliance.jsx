@@ -50,7 +50,7 @@ export function FdaDisclaimer({ product, className = "" }) {
 }
 
 export function CompoundedDisclaimer({ className = "", tone = "muted" }) {
-  const color = tone === "panel" ? "text-on-panel/55" : "text-muted";
+  const color = tone === "panel" ? "text-muted" : "text-muted";
   return (
     <div className={`space-y-2 text-[0.78rem] leading-relaxed ${color} ${className}`}>
       <p>

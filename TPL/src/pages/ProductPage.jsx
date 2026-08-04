@@ -324,18 +324,18 @@ export default function ProductPage() {
       {/* ===== Closing CTA ===== */}
       <section className="mx-auto mb-[clamp(3rem,6vw,5rem)] max-w-[1180px] px-5 md:px-10">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[calc(28px*var(--nv-r-scale,1))] bg-panel px-6 py-[clamp(2.4rem,5vw,3.6rem)] text-center text-on-panel">
+          <div className="relative overflow-hidden rounded-[calc(28px*var(--nv-r-scale,1))] bg-panel px-6 py-[clamp(2.4rem,5vw,3.6rem)] text-center text-ink">
             <div
               className="pointer-events-none absolute inset-0"
               style={{ background: "radial-gradient(50% 80% at 50% 0%, color-mix(in oklab, var(--nv-accent) 22%, transparent), transparent 70%)" }}
             />
             <div className="relative">
               <h2 className="mx-auto max-w-[22ch] font-display text-[clamp(1.6rem,3.4vw,2.4rem)] font-extrabold leading-tight">Start consultation for {product.name.split("(")[0].split("/")[0].trim()}.</h2>
-              <p className="mx-auto mt-3 max-w-[46ch] text-[1rem] text-on-panel/70">A licensed provider reviews your intake and confirms the right fit. Nothing to pay until you're prescribed.</p>
+              <p className="mx-auto mt-3 max-w-[46ch] text-[1rem] text-ink/80">A licensed provider reviews your intake and confirms the right fit. Nothing to pay until you're prescribed.</p>
               {isKiosk ? (
                 <button
                   onClick={() => setShowQR(true)}
-                  className="group mt-7 inline-flex items-center gap-2 rounded-full bg-bg px-8 py-4 text-[1rem] font-semibold text-ink transition-all hover:-translate-y-0.5 nv-shadow-lg"
+                  className="group mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-[1rem] font-semibold text-on-primary transition-all hover:-translate-y-0.5 nv-shadow-lg"
                 >
                   Start consultation <QrCode size={17} className="transition-transform group-hover:scale-110" />
                 </button>
@@ -343,7 +343,7 @@ export default function ProductPage() {
                 <button
                   onClick={() => setShowInfo(true)}
                   disabled={loading}
-                  className="group mt-7 inline-flex items-center gap-2 rounded-full bg-bg px-8 py-4 text-[1rem] font-semibold text-ink transition-all hover:-translate-y-0.5 nv-shadow-lg disabled:opacity-70 disabled:hover:translate-y-0"
+                  className="group mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-[1rem] font-semibold text-on-primary transition-all hover:-translate-y-0.5 nv-shadow-lg disabled:opacity-70 disabled:hover:translate-y-0"
                 >
                   {loading ? (
                     <><Loader2 size={16} className="animate-spin" /> Starting…</>
@@ -352,7 +352,7 @@ export default function ProductPage() {
                   )}
                 </button>
               )}
-              {err && !isKiosk && <p className="mt-3 text-[0.84rem] font-medium text-on-panel/80">{err}</p>}
+              {err && !isKiosk && <p className="mt-3 text-[0.84rem] font-medium text-ink/80">{err}</p>}
             </div>
           </div>
         </Reveal>

@@ -113,7 +113,7 @@ export default function ContactPage() {
           <div className="overflow-hidden rounded-[calc(28px*var(--nv-r-scale,1))] border border-line bg-surface nv-shadow-lg">
             <div className="grid md:grid-cols-[0.82fr_1.18fr]">
               {/* --- Dark info panel --- */}
-              <div className="relative order-2 overflow-hidden bg-panel p-[clamp(1.6rem,3.4vw,2.6rem)] text-on-panel md:order-1">
+              <div className="relative order-2 overflow-hidden bg-panel p-[clamp(1.6rem,3.4vw,2.6rem)] text-ink md:order-1">
                 {/* decorative glows */}
                 <div aria-hidden className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-accent/25 blur-3xl" />
                 <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-12 h-56 w-56 rounded-full bg-primary/50 blur-3xl" />
@@ -123,7 +123,7 @@ export default function ContactPage() {
                   <h2 className="mt-3 text-[clamp(1.5rem,2.6vw,2rem)] font-extrabold leading-tight">
                     A care team that actually answers
                   </h2>
-                  <p className="mt-3 max-w-[34ch] text-[0.96rem] leading-relaxed text-on-panel/70">
+                  <p className="mt-3 max-w-[34ch] text-[0.96rem] leading-relaxed text-ink/80">
                     Reach the care team directly no phone trees, no bots reading from a script.
                   </p>
 
@@ -136,8 +136,8 @@ export default function ContactPage() {
                             <d.icon size={18} strokeWidth={1.9} />
                           </span>
                           <span className="flex min-w-0 flex-col">
-                            <span className="font-mono text-[0.64rem] uppercase tracking-[0.14em] text-on-panel/55">{d.label}</span>
-                            <span className="truncate text-[0.98rem] font-semibold text-on-panel">{d.value}</span>
+                            <span className="font-mono text-[0.64rem] uppercase tracking-[0.14em] text-muted">{d.label}</span>
+                            <span className="truncate text-[0.98rem] font-semibold text-ink">{d.value}</span>
                           </span>
                         </>
                       );
@@ -145,13 +145,13 @@ export default function ContactPage() {
                         <a
                           key={d.label}
                           href={d.href}
-                          className="group flex items-center gap-3.5 rounded-2xl border border-white/10 bg-white/[0.04] px-3.5 py-3 transition-colors hover:bg-white/[0.08]"
+                          className="group flex items-center gap-3.5 rounded-2xl border border-ink/12 bg-ink/[0.04] px-3.5 py-3 transition-colors hover:bg-ink/8"
                         >
                           {Inner}
-                          <ArrowRight size={15} className="ml-auto shrink-0 text-on-panel/40 transition-all group-hover:translate-x-0.5 group-hover:text-accent" />
+                          <ArrowRight size={15} className="ml-auto shrink-0 text-muted transition-all group-hover:translate-x-0.5 group-hover:text-accent" />
                         </a>
                       ) : (
-                        <div key={d.label} className="flex items-center gap-3.5 rounded-2xl border border-white/10 bg-white/[0.04] px-3.5 py-3">
+                        <div key={d.label} className="flex items-center gap-3.5 rounded-2xl border border-ink/12 bg-ink/[0.04] px-3.5 py-3">
                           {Inner}
                         </div>
                       );
@@ -159,16 +159,16 @@ export default function ContactPage() {
                   </div>
 
                   {/* response promise */}
-                  <div className="mt-5 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5">
+                  <div className="mt-5 flex items-center gap-3 rounded-2xl border border-ink/12 bg-ink/[0.04] px-4 py-3.5">
                     <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent/15 text-accent">
                       <MessageSquare size={16} strokeWidth={2} />
                     </span>
-                    <p className="text-[0.88rem] leading-snug text-on-panel/80">
-                      Most messages get a reply the <span className="font-semibold text-on-panel">same business day</span>.
+                    <p className="text-[0.88rem] leading-snug text-ink/80">
+                      Most messages get a reply the <span className="font-semibold text-ink">same business day</span>.
                     </p>
                   </div>
 
-                  <p className="mt-6 text-[0.76rem] leading-relaxed text-on-panel/50">
+                  <p className="mt-6 text-[0.76rem] leading-relaxed text-muted">
                     For a medical emergency, call 911. This inbox isn't monitored for urgent clinical needs.
                   </p>
                 </div>

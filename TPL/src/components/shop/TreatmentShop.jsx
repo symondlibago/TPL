@@ -59,7 +59,7 @@ function ProductCard({ p, delay, floatDelay = 0, onQuickView }) {
       {/* Quick view — opens a preview modal so patients know the product before consulting */}
       <button
         onClick={(e) => { e.stopPropagation(); onQuickView(p); }}
-        className="group/btn mt-auto flex items-center justify-center gap-1.5 rounded-full bg-primary py-1.5 text-[11.5px] font-semibold text-on-primary transition-all hover:bg-primary-deep nv-shadow sm:py-3 sm:text-[13.5px]"
+        className="group/btn mt-auto flex items-center justify-center gap-1.5 nv-btn-gold rounded-full py-1.5 text-[11.5px] font-semibold transition-all nv-shadow sm:py-3 sm:text-[13.5px]"
       >
         Quick view
         <ArrowRight size={14} strokeWidth={2.5} className="transition-transform group-hover/btn:translate-x-0.5" />

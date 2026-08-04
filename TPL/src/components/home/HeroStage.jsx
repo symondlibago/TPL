@@ -102,7 +102,8 @@ function GlassCard({ c, delay, mode = "auto", featured = false, className = "", 
       >
         <span className="nv-glass absolute inset-0 rounded-[calc(18px*var(--nv-r-scale,1))]" />
         {/* mobile only: a touch darker for contrast on the photo */}
-        <span className="absolute inset-0 bg-panel/45 sm:hidden" />
+        {/* scrim, not a panel — has to stay dark, the copy above it is white */}
+        <span className="absolute inset-0 bg-scrim/45 sm:hidden" />
 
         {/* gloss sweep on hover (sm+ cards) */}
         <span className="pointer-events-none absolute inset-0 z-[1] hidden overflow-hidden rounded-[calc(18px*var(--nv-r-scale,1))] sm:block">

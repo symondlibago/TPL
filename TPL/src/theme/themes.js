@@ -6,21 +6,23 @@ export const PALETTES = [
   {
     id: "peptide-lounge",
     name: "The Peptide Lounge",
-    tagline: "Warm ivory + brass + near-black · the house palette",
-    swatch: ["#1B1712", "#A97D24", "#C49239", "#E6D9C4", "#F5EDE1"],
+    tagline: "Warm ivory + brass, dark type · the house palette",
+    swatch: ["#A97D24", "#C3963C", "#EFE2CE", "#E6D9C4", "#F5EDE1"],
+    // Keep in sync with :root in index.css — the prerendered HTML paints these
+    // before React hydrates, so any mismatch flashes on first load.
     vars: {
       "--nv-bg": "#F5EDE1",
       "--nv-surface": "#FDFAF5",
       "--nv-surface-2": "#EFE2CE",
       "--nv-ink": "#1B1712",
       "--nv-ink-panel": "#17130D",
-      "--nv-primary": "#211C15",
-      "--nv-primary-deep": "#100D08",
+      "--nv-primary": "#A97D24",
+      "--nv-primary-deep": "#C3963C",
       "--nv-accent": "#A97D24",
       "--nv-line": "#E6D9C4",
       "--nv-line-strong": "#D6C3A6",
       "--nv-muted": "#6B5E4B",
-      "--nv-on-primary": "#F9F3E7",
+      "--nv-on-primary": "#1B1712",
       "--nv-on-panel": "#ECE0CA",
     },
   },

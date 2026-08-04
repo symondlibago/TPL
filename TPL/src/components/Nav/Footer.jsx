@@ -8,18 +8,18 @@ const TikTokIcon = ({ size = 18 }) => (
   </svg>
 );
 
-const social = "grid h-10 w-10 place-items-center rounded-full bg-white/10 text-on-panel transition-colors hover:bg-accent hover:text-panel";
+const social = "grid h-10 w-10 place-items-center rounded-full bg-ink/8 text-ink transition-colors hover:bg-accent hover:text-panel";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto w-full bg-panel pb-10 pt-16 text-on-panel/75 md:pt-24">
+    <footer className="mt-auto w-full bg-panel pb-10 pt-16 text-ink/80 md:pt-24">
       <div className="mx-auto max-w-[1340px] px-6 md:px-10">
         <div className="mb-12 grid grid-cols-2 gap-x-6 gap-y-9 md:mb-20 md:grid-cols-4 md:gap-10 lg:gap-16">
           <div className="col-span-2 lg:col-span-1 md:pr-8">
             <span className="inline-flex w-fit rounded-2xl bg-surface px-5 py-3.5 nv-shadow">
               <img src="/logo.png" alt="The Peptide Lounge" className="h-[42px] w-auto" />
             </span>
-            <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-on-panel/60">
+            <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-muted">
               Personalized supplements and treatments, formulated by licensed physicians and delivered to your door.
             </p>
             <div className="mt-6 flex gap-3">
@@ -32,52 +32,52 @@ export default function Footer() {
 
           <div>
             <h4 className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.13em] text-accent md:mb-6">Treatments</h4>
-            <ul className="space-y-3 text-[14px] text-on-panel/60 md:space-y-4">
-              <li><Link to="/treatments" className="transition-colors hover:text-on-panel">All Treatments</Link></li>
-              <li><Link to="/treatments/weight-loss" className="transition-colors hover:text-on-panel">Weight Loss</Link></li>
-              <li><Link to="/treatments/unisex-anti-aging-rx" className="transition-colors hover:text-on-panel">Anti-Aging</Link></li>
-              <li><Link to="/treatments/unisex-skin-health" className="transition-colors hover:text-on-panel">Skin Health</Link></li>
-              <li><Link to="/treatments/mens-health" className="transition-colors hover:text-on-panel">Sexual Health</Link></li>
-              <li><Link to="/treatments/unisex-sports-medicine" className="transition-colors hover:text-on-panel">Sports Medicine</Link></li>
+            <ul className="space-y-3 text-[14px] text-muted md:space-y-4">
+              <li><Link to="/treatments" className="transition-colors hover:text-ink">All Treatments</Link></li>
+              <li><Link to="/treatments/weight-loss" className="transition-colors hover:text-ink">Weight Loss</Link></li>
+              <li><Link to="/treatments/unisex-anti-aging-rx" className="transition-colors hover:text-ink">Anti-Aging</Link></li>
+              <li><Link to="/treatments/unisex-skin-health" className="transition-colors hover:text-ink">Skin Health</Link></li>
+              <li><Link to="/treatments/mens-health" className="transition-colors hover:text-ink">Sexual Health</Link></li>
+              <li><Link to="/treatments/unisex-sports-medicine" className="transition-colors hover:text-ink">Sports Medicine</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.13em] text-accent md:mb-6">Company</h4>
-            <ul className="space-y-3 text-[14px] text-on-panel/60 md:space-y-4">
-              <li><Link to="/#how" className="transition-colors hover:text-on-panel">How it works</Link></li>
-              <li><Link to="/kiosk" className="transition-colors hover:text-on-panel">Smart Kiosk</Link></li>
-              <li><Link to="/supplements" className="transition-colors hover:text-on-panel">Supplements</Link></li>
-              <li><Link to="/#reviews" className="transition-colors hover:text-on-panel">Reviews</Link></li>
-              <li><Link to="/#faq" className="transition-colors hover:text-on-panel">FAQ</Link></li>
-              <li><Link to="/contact" className="transition-colors hover:text-on-panel">Contact Us</Link></li>
+            <ul className="space-y-3 text-[14px] text-muted md:space-y-4">
+              <li><Link to="/#how" className="transition-colors hover:text-ink">How it works</Link></li>
+              <li><Link to="/kiosk" className="transition-colors hover:text-ink">Smart Kiosk</Link></li>
+              <li><Link to="/supplements" className="transition-colors hover:text-ink">Supplements</Link></li>
+              <li><Link to="/#reviews" className="transition-colors hover:text-ink">Reviews</Link></li>
+              <li><Link to="/#faq" className="transition-colors hover:text-ink">FAQ</Link></li>
+              <li><Link to="/contact" className="transition-colors hover:text-ink">Contact Us</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.13em] text-accent md:mb-6">Legal</h4>
-            <ul className="space-y-3 text-[14px] text-on-panel/60 md:space-y-4">
-              <li><Link to="/legal/privacy-policy" className="transition-colors hover:text-on-panel">Privacy policy</Link></li>
-              <li><Link to="/legal/hipaa-notice-of-privacy-practices" className="transition-colors hover:text-on-panel">Notice of Privacy Practices</Link></li>
-              <li><Link to="/legal/terms-and-conditions" className="transition-colors hover:text-on-panel">Terms &amp; conditions</Link></li>
-              <li><Link to="/legal/telehealth-consent" className="transition-colors hover:text-on-panel">Telehealth consent</Link></li>
-              <li><Link to="/legal/consumer-health-data" className="transition-colors hover:text-on-panel">Consumer Health Data</Link></li>
-              <li><Link to="/legal/sitemap" className="transition-colors hover:text-on-panel">Sitemap</Link></li>
+            <ul className="space-y-3 text-[14px] text-muted md:space-y-4">
+              <li><Link to="/legal/privacy-policy" className="transition-colors hover:text-ink">Privacy policy</Link></li>
+              <li><Link to="/legal/hipaa-notice-of-privacy-practices" className="transition-colors hover:text-ink">Notice of Privacy Practices</Link></li>
+              <li><Link to="/legal/terms-and-conditions" className="transition-colors hover:text-ink">Terms &amp; conditions</Link></li>
+              <li><Link to="/legal/telehealth-consent" className="transition-colors hover:text-ink">Telehealth consent</Link></li>
+              <li><Link to="/legal/consumer-health-data" className="transition-colors hover:text-ink">Consumer Health Data</Link></li>
+              <li><Link to="/legal/sitemap" className="transition-colors hover:text-ink">Sitemap</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-white/10 pt-8 text-[13px] text-on-panel/50 md:flex-row md:items-center md:justify-between md:pt-10">
+        <div className="flex flex-col gap-4 border-t border-ink/12 pt-8 text-[13px] text-muted md:flex-row md:items-center md:justify-between md:pt-10">
           <p>©2026 The Peptide Lounge Inc. All rights reserved.</p>
           <a
             href="mailto:privacy@thepeptidelounge.com?subject=Do%20Not%20Sell%20or%20Share%20My%20Personal%20Information&body=I%20am%20requesting%20to%20opt%20out%20of%20the%20sale%20or%20sharing%20of%20my%20personal%20information.%20Please%20process%20this%20request%20for%20the%20email%20address%20on%20file."
-            className="font-medium text-on-panel/70 underline underline-offset-2 transition-colors hover:text-on-panel"
+            className="font-medium text-ink/80 underline underline-offset-2 transition-colors hover:text-ink"
           >
             Do Not Sell or Share My Personal Information
           </a>
         </div>
 
-        <div className="mt-8 max-w-6xl space-y-2 text-left text-[10px] leading-relaxed text-on-panel/40 md:text-[11px]">
+        <div className="mt-8 max-w-6xl space-y-2 text-left text-[10px] leading-relaxed text-muted md:text-[11px]">
           <p>
             Compounded drug products are not approved or evaluated for safety, effectiveness, or quality
             by the FDA. Prescription required. The Peptide Lounge does not manufacture drug products.

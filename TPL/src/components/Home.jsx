@@ -136,12 +136,12 @@ export default function Home() {
       </Suspense>
 
       {/* ===== Stats band ===== */}
-      <section className="bg-panel text-on-panel">
+      <section className="nv-band-soft">
         <div className="mx-auto grid max-w-[1240px] grid-cols-2 gap-6 px-5 py-[clamp(2.4rem,4vw,3.2rem)] md:grid-cols-4 md:px-10">
           {STATS.map((s) => (
             <div key={s.s} className="text-center">
               <b className="block text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight">{s.b}</b>
-              <span className="mt-1.5 block font-mono text-[0.72rem] uppercase tracking-[0.13em] text-on-panel/60">{s.s}</span>
+              <span className="mt-1.5 block font-mono text-[0.72rem] uppercase tracking-[0.13em] text-ink/70">{s.s}</span>
             </div>
           ))}
         </div>

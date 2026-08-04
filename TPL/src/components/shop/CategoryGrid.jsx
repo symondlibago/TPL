@@ -9,7 +9,7 @@ function DarkCard({ it, art, onClick, hero = false }) {
     <Link
       to={it.link}
       onClick={onClick}
-      className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-[calc(22px*var(--nv-r-scale,1))] bg-panel text-on-panel transition-all duration-300 hover:-translate-y-1.5 hover:nv-shadow-lg ${
+      className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-[calc(22px*var(--nv-r-scale,1))] bg-panel text-ink transition-all duration-300 hover:-translate-y-1.5 hover:nv-shadow-lg ${
         hero ? "min-h-[clamp(220px,30vw,280px)] p-7 sm:p-9" : "min-h-[clamp(196px,24vw,220px)] p-6"
       }`}
     >
@@ -35,15 +35,15 @@ function DarkCard({ it, art, onClick, hero = false }) {
       {/* content */}
       <div className={`relative z-[2] ${hero ? "max-w-[68%]" : "max-w-[62%]"}`}>
         <span className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-accent">{it.tag}</span>
-        <h3 className={`mt-1.5 font-display font-bold leading-tight tracking-tight text-white ${hero ? "text-[clamp(1.6rem,3.4vw,2.15rem)]" : "text-[1.3rem]"}`}>{it.name}</h3>
-        {it.blurb && <p className={`mt-2 leading-snug text-on-panel/65 ${hero ? "max-w-[42ch] text-[0.95rem]" : "text-[0.83rem]"}`}>{it.blurb}</p>}
+        <h3 className={`mt-1.5 font-display font-bold leading-tight tracking-tight text-ink ${hero ? "text-[clamp(1.6rem,3.4vw,2.15rem)]" : "text-[1.3rem]"}`}>{it.name}</h3>
+        {it.blurb && <p className={`mt-2 leading-snug text-muted ${hero ? "max-w-[42ch] text-[0.95rem]" : "text-[0.83rem]"}`}>{it.blurb}</p>}
       </div>
 
       {/* CTA pill */}
-      <span className={`relative z-[2] inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] py-1.5 pl-1.5 pr-4 font-semibold text-white transition-colors duration-300 group-hover:bg-white group-hover:text-ink ${
+      <span className={`relative z-[2] inline-flex w-fit items-center gap-2 rounded-full border border-ink/15 bg-ink/5 py-1.5 pl-1.5 pr-4 font-semibold text-ink transition-colors duration-300 group-hover:bg-ink group-hover:text-bg ${
         hero ? "mt-6 text-[0.9rem]" : "mt-4 text-[0.84rem]"
       }`}>
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-white/10 transition-colors duration-300 group-hover:bg-ink/10">
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-ink/10 transition-colors duration-300 group-hover:bg-bg/25">
           <ArrowRight size={14} strokeWidth={2.4} />
         </span>
         {it.cta || "Start assessment"}
@@ -63,7 +63,9 @@ function PhotoCard({ it, onClick, hero = false }) {
       to={it.link}
       onClick={onClick}
       className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-[calc(22px*var(--nv-r-scale,1))] transition-all duration-300 hover:-translate-y-1.5 hover:nv-shadow-lg ${
-        darkTone ? "bg-panel text-on-panel" : "border border-line bg-surface text-ink"
+        // darkTone keeps a dark photo scrim, so its base and copy stay dark/white —
+        // `panel` is a light sand surface now and would erase the text.
+        darkTone ? "bg-scrim text-white" : "border border-line bg-surface text-ink"
       } ${hero ? "min-h-[clamp(220px,30vw,280px)] p-7 sm:p-9" : "min-h-[clamp(196px,24vw,220px)] p-6"}`}
     >
       <img
@@ -97,7 +99,7 @@ function PhotoCard({ it, onClick, hero = false }) {
       <div className={`relative z-[2] ${hero ? "max-w-[68%]" : "max-w-[70%]"}`}>
         <span className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-accent">{it.tag}</span>
         <h3 className={`mt-1.5 font-display font-bold leading-tight tracking-tight ${darkTone ? "text-white" : "text-ink"} ${hero ? "text-[clamp(1.6rem,3.4vw,2.15rem)]" : "text-[1.3rem]"}`}>{it.name}</h3>
-        {it.blurb && <p className={`mt-2 leading-snug ${darkTone ? "text-on-panel/70" : "text-muted"} ${hero ? "max-w-[42ch] text-[0.95rem]" : "max-w-[26ch] text-[0.83rem]"}`}>{it.blurb}</p>}
+        {it.blurb && <p className={`mt-2 leading-snug ${darkTone ? "text-white/75" : "text-muted"} ${hero ? "max-w-[42ch] text-[0.95rem]" : "max-w-[26ch] text-[0.83rem]"}`}>{it.blurb}</p>}
       </div>
 
       <span

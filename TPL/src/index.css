@@ -14,7 +14,11 @@
   --color-surface: var(--nv-surface);
   --color-surface-2: var(--nv-surface-2);
   --color-ink: var(--nv-ink);
-  --color-panel: var(--nv-ink-panel);
+  /* `panel` is the section/card surface — each palette's own surface-2, so every
+     studio palette gets a correct value without declaring a new variable.
+     Deliberately NOT --nv-ink-panel: that stays dark because it also scrims
+     photos sitting behind white copy. */
+  --color-panel: var(--nv-surface-2);
   --color-primary: var(--nv-primary);
   --color-primary-deep: var(--nv-primary-deep);
   --color-accent: var(--nv-accent);
@@ -22,7 +26,8 @@
   --color-line-strong: var(--nv-line-strong);
   --color-muted: var(--nv-muted);
   --color-on-primary: var(--nv-on-primary);
-  --color-on-panel: var(--nv-on-panel);
+  --color-on-panel: var(--nv-ink);
+  --color-scrim: var(--nv-ink-panel);
 
   --font-display: var(--nv-font-display);
   --font-body: var(--nv-font-body);
@@ -44,13 +49,16 @@
   --nv-surface-2: #EFE2CE;
   --nv-ink: #1B1712;
   --nv-ink-panel: #17130D;
-  --nv-primary: #211C15;
-  --nv-primary-deep: #100D08;
+  /* Buttons are brass with dark type, not near-black: ink on #A97D24 is 4.8:1 and
+     on the #C3963C hover 6.6:1, where cream on brass only reaches ~3.4:1.
+     primary-deep is LIGHTER than primary so hover raises contrast. */
+  --nv-primary: #A97D24;
+  --nv-primary-deep: #C3963C;
   --nv-accent: #A97D24;
   --nv-line: #E6D9C4;
   --nv-line-strong: #D6C3A6;
   --nv-muted: #6B5E4B;
-  --nv-on-primary: #F9F3E7;
+  --nv-on-primary: #1B1712;
   --nv-on-panel: #ECE0CA;
 
   --nv-font-display: 'Hanken Grotesk', system-ui, sans-serif;
@@ -150,6 +158,25 @@
 
   .nv-shadow { box-shadow: var(--nv-shadow); }
   .nv-shadow-lg { box-shadow: var(--nv-shadow-lg); }
+
+  /* Hero/feature panel. A flat mid-gold slab reads cheap at this size, so this is
+     ivory→sand with a soft brass bloom in one corner and a hairline rule — the
+     gold stays an accent instead of becoming the whole surface. */
+  .nv-panel-lux {
+    background:
+      radial-gradient(120% 130% at 88% 6%, color-mix(in oklab, var(--nv-accent) 20%, transparent) 0%, transparent 60%),
+      linear-gradient(158deg, var(--nv-surface) 0%, var(--nv-surface-2) 100%);
+    color: var(--nv-ink);
+    border: 1px solid var(--nv-line);
+  }
+
+  /* Full-bleed stat/feature band — sand with hairline rules top and bottom. */
+  .nv-band-soft {
+    background: var(--nv-surface-2);
+    color: var(--nv-ink);
+    border-top: 1px solid var(--nv-line);
+    border-bottom: 1px solid var(--nv-line);
+  }
 
   /* Scroll-reveal primitive (paired with the useReveal hook). */
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.3,1), transform 0.7s cubic-bezier(0.2,0.7,0.3,1); }

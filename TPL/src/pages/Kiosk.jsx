@@ -60,31 +60,31 @@ export default function KioskPage() {
               backgroundSize: "18px 18px",
             }}
           >
-            <div className="relative overflow-hidden rounded-[calc(32px*var(--nv-r-scale,1))] bg-panel text-on-panel">
+            <div className="nv-panel-lux relative overflow-hidden rounded-[calc(32px*var(--nv-r-scale,1))]">
               <div className="relative grid items-center gap-[clamp(1.5rem,4vw,3rem)] p-[clamp(1.8rem,4vw,3.6rem)] md:grid-cols-[1.05fr_0.95fr]">
                 {/* copy */}
                 <div>
                   <span className="font-mono text-[0.74rem] font-medium uppercase tracking-[0.2em] text-accent">
                     The Peptide Lounge Smart Kiosk
                   </span>
-                  <h1 className="mt-4 max-w-[14ch] font-display text-[clamp(2rem,4.6vw,3.4rem)] font-extrabold leading-[1.04] tracking-tight text-white">
+                  <h1 className="mt-4 max-w-[14ch] font-display text-[clamp(2rem,4.6vw,3.4rem)] font-extrabold leading-[1.04] tracking-tight text-ink">
                     Your clinic, in a single square metre.
                   </h1>
-                  <p className="mt-5 max-w-[44ch] text-[1.04rem] leading-relaxed text-on-panel/75">
+                  <p className="mt-5 max-w-[44ch] text-[1.04rem] leading-relaxed text-ink/75">
                     Step up, tap in, and walk away with a physician-designed protocol. The Smart Kiosk brings
                     concierge-grade telehealth into the premium spaces you already love.
                   </p>
                   <div className="mt-8 flex flex-wrap items-center gap-3">
                     <Link
                       to="/start"
-                      className="group inline-flex items-center gap-2.5 rounded-full bg-bg px-6 py-3.5 text-[0.98rem] font-semibold text-ink transition-all hover:-translate-y-0.5 nv-shadow-lg"
+                      className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-3.5 text-[0.98rem] font-semibold text-on-primary transition-all hover:-translate-y-0.5 nv-shadow-lg"
                     >
                       Start your visit
                       <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
                     </Link>
                     <a
                       href="#partner"
-                      className="inline-flex items-center rounded-full border border-white/25 bg-white/5 px-6 py-3.5 text-[0.98rem] font-semibold text-white transition-colors hover:bg-white/12"
+                      className="inline-flex items-center rounded-full border border-ink/30 bg-ink/5 px-6 py-3.5 text-[0.98rem] font-semibold text-ink transition-colors hover:bg-ink/12"
                     >
                       Host a kiosk
                     </a>
@@ -112,12 +112,12 @@ export default function KioskPage() {
       </section>
 
       {/* ===== Stat band ===== */}
-      <section className="bg-panel text-on-panel">
+      <section className="nv-band-soft">
         <div className="mx-auto grid max-w-[1240px] grid-cols-2 gap-6 px-5 py-[clamp(2rem,4vw,3rem)] md:grid-cols-4 md:px-10">
           {STATS.map((s) => (
             <div key={s.s} className="text-center">
               <b className="block text-[clamp(1.7rem,4vw,2.6rem)] font-extrabold tracking-tight">{s.b}</b>
-              <span className="mt-1.5 block font-mono text-[0.7rem] uppercase tracking-[0.13em] text-on-panel/60">{s.s}</span>
+              <span className="mt-1.5 block font-mono text-[0.7rem] uppercase tracking-[0.13em] text-ink/70">{s.s}</span>
             </div>
           ))}
         </div>
@@ -212,24 +212,24 @@ export default function KioskPage() {
         {/* spotlight row */}
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           <Reveal as="div" className="md:col-span-2">
-            <div className="relative h-full overflow-hidden rounded-[calc(26px*var(--nv-r-scale,1))] bg-panel p-8 text-on-panel nv-shadow-lg md:p-10">
+            <div className="nv-panel-lux relative h-full overflow-hidden rounded-[calc(26px*var(--nv-r-scale,1))] p-8 nv-shadow-lg md:p-10">
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{ background: "radial-gradient(60% 90% at 90% 10%, color-mix(in oklab, var(--nv-accent) 26%, transparent), transparent 70%)" }}
               />
               <div className="relative">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-accent"><Monitor size={22} /></span>
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink/10 text-ink"><Monitor size={22} /></span>
                 <h3 className="mt-5 font-display text-[clamp(1.4rem,2.6vw,1.9rem)] font-extrabold leading-tight">
-                  The whole The Peptide Lounge experience, on one big screen.
+                  The whole Peptide Lounge experience, on one big screen.
                 </h3>
-                <p className="mt-3 max-w-[48ch] text-[1rem] leading-relaxed text-on-panel/70">
+                <p className="mt-3 max-w-[48ch] text-[1rem] leading-relaxed text-ink/75">
                   Everything you'd do on your phone, now on a large, easy display. Browse treatments, take
                   your questionnaire, and start your visit. From there, a licensed U.S. provider reviews your
                   answers and prescribes what fits.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2.5">
                   {["Browse treatments", "Take the questionnaire", "Start your visit"].map((c) => (
-                    <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[0.82rem] font-medium text-on-panel/85">
+                    <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-ink/5 px-3.5 py-1.5 text-[0.82rem] font-medium text-ink/85">
                       {c}
                     </span>
                   ))}
@@ -285,7 +285,7 @@ export default function KioskPage() {
       {/* ===== Partner CTA ===== */}
       <section id="partner" className="mx-auto mb-[clamp(3rem,6vw,5rem)] max-w-[1180px] scroll-mt-24 px-5 md:px-10">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[calc(28px*var(--nv-r-scale,1))] bg-panel px-6 py-[clamp(2.4rem,5vw,3.6rem)] text-center text-on-panel">
+          <div className="relative overflow-hidden rounded-[calc(28px*var(--nv-r-scale,1))] bg-panel px-6 py-[clamp(2.4rem,5vw,3.6rem)] text-center text-ink">
             <div
               className="pointer-events-none absolute inset-0"
               style={{ background: "radial-gradient(50% 80% at 50% 0%, color-mix(in oklab, var(--nv-accent) 22%, transparent), transparent 70%)" }}
@@ -295,12 +295,12 @@ export default function KioskPage() {
               <h2 className="mx-auto mt-3 max-w-[24ch] font-display text-[clamp(1.6rem,3.4vw,2.4rem)] font-extrabold leading-tight">
                 Host a Peptide Lounge Smart Kiosk
               </h2>
-              <p className="mx-auto mt-3 max-w-[48ch] text-[1rem] text-on-panel/70">
+              <p className="mx-auto mt-3 max-w-[48ch] text-[1rem] text-ink/80">
                 Own a gym, spa, or wellness space? Give your members provider-guided care on site. We handle the technology, the clinicians, and the fulfillment, so you don't have to.
               </p>
               <Link
                 to="/contact"
-                className="group mt-7 inline-flex items-center gap-2 rounded-full bg-bg px-8 py-4 text-[1rem] font-semibold text-ink transition-all hover:-translate-y-0.5 nv-shadow-lg"
+                className="group mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-[1rem] font-semibold text-on-primary transition-all hover:-translate-y-0.5 nv-shadow-lg"
               >
                 Talk to our team <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
